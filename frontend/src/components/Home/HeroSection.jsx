@@ -72,9 +72,9 @@ const HeroSection = () => {
       </div>
 
       {/* OVERLAY, BUTTON & TEXT */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 flex flex-col justify-center items-center px-6 text-center text-white select-none pointer-events-none">
+      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 flex flex-col justify-center items-center pt-28 px-6 text-center text-white select-none pointer-events-none">
         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight max-w-4xl mb-6">
-          WELCOME TO LION HILL
+          Welcome To Lion Hill Place
           <br />
           <span className="text-xl md:text-2xl font-semibold mt-4 block">
             A tranquil escape for B&B stays, camping, and intimate events — right next to Lake Nakuru National Park.
