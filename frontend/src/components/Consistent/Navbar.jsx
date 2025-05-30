@@ -25,7 +25,7 @@ const Navbar = () => {
       {/* Centered Logo */}
       <div className="w-1/3 flex justify-center h-full">
         <img
-          src="/lionhill.png"
+          src="/lionhill.00.png"
           alt="Lion Hill Logo"
           className="h-[150px] max-h-[150px] object-contain transition-all duration-300"
         />
