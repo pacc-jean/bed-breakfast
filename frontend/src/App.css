@@ -1,0 +1,35 @@
+.glossy-button {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.05)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.glossy-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+  transform: rotate(25deg);
+  transition: all 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+.glossy-button:hover::before {
+  left: 100%;
+  top: 100%;
+}
+
+.glossy-button:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}

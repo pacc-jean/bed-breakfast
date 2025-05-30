@@ -1,39 +1,59 @@
 import React from 'react';
 
-const OverviewSection = () => {
-  return (
-    <section className="w-full py-20 px-6 bg-white text-gray-800">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">A Place of Peace & Wonder</h2>
-        <p className="text-lg md:text-xl leading-relaxed mb-12">
-          Tucked beside the iconic Lake Nakuru National Park, Lion Hill offers more than just a bed to sleep in —
-          it's an immersion into tranquility. Wake to the calls of flamingos, fall asleep to the rustling trees,
-          and spend your days in the embrace of nature's rhythm.
-        </p>
+import cozyIcon from '../../assets/overview/cozy-bnb.jpg';
+import campingIcon from '../../assets/overview/scenic-camping.jpg';
+import eventsIcon from '../../assets/overview/events-space.jpg';
 
-        <div className="grid md:grid-cols-3 gap-10 text-left">
-          <div>
-            <h3 className="text-2xl font-semibold mb-2">🏕️ Camping</h3>
-            <p>
-              Set up under starlit skies. Our campsites offer both adventure and serenity, whether you’re solo or squad deep.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-2xl font-semibold mb-2">🛌 B&B Stays</h3>
-            <p>
-              Cozy rooms with character, warm hospitality, and views that stop time — perfect for couples, families, or creatives on retreat.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-2xl font-semibold mb-2">🎉 Private Events</h3>
-            <p>
-              Celebrate love, milestones, or community with intimate gatherings by the wild. We host weddings, birthdays, and retreats.
-            </p>
-          </div>
+const features = [
+  {
+    icon: cozyIcon,
+    title: 'Cozy B&B',
+    description:
+      'Unwind in comfortable rooms with delicious breakfast and easy access to nature’s wonders.',
+  },
+  {
+    icon: campingIcon,
+    title: 'Scenic Camping',
+    description:
+      'Experience the great outdoors with well-maintained campgrounds nestled in natural beauty.',
+  },
+  {
+    icon: eventsIcon,
+    title: 'Events Space',
+    description:
+      'Perfect for birthdays, reunions, and intimate gatherings with a view of the hills.',
+  },
+];
+
+const OverviewSection = () => (
+  <section className="w-full bg-gray-50 py-16 px-6">
+    <div className="max-w-6xl mx-auto text-center mb-12">
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
+        What We Offer
+      </h2>
+    </div>
+
+    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {features.map(({ icon, title, description }) => (
+        <div
+          key={title}
+          className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center"
+        >
+          <img
+            src={icon}
+            alt={title}
+            className="h-150px w-150px mb-4 object-contain"
+          />
+          <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">
+            {title}
+          </h3>
+          <p className="text-base md:text-lg text-gray-600">
+            {description}
+          </p>
         </div>
-      </div>
-    </section>
-  );
-};
+      ))}
+    </div>
+  </section>
+);
 
 export default OverviewSection;

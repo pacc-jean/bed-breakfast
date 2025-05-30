@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
+import '../../App.css';
 
 import img0 from '../../assets/hero/hero-00.jpg';
 import img1 from '../../assets/hero/hero-01.jpg';
@@ -81,7 +82,7 @@ const HeroSection = () => {
           </span>
         </h1>
         <button
-          className="mt-8 bg-red-600 hover:bg-red-700 px-8 py-3 rounded-full text-lg font-semibold transition pointer-events-auto"
+          className="mt-8 px-8 py-3 rounded-full text-lg font-semibold transition pointer-events-auto glossy-button"
         >
           Book With Us
         </button>
