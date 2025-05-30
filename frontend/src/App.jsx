@@ -5,6 +5,8 @@ import MobileBottomNav from './components/Consistent/MobileBottom Nav';
 import Footer from './components/Consistent/Footer';
 import HomePage from './pages/HomePage';
 import BookingsPage from './pages/BookingsPage';
+import FAQ from './pages/FAQ';
+import Contact from './pages/Contact';
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/book" element={<BookingsPage />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </div>
