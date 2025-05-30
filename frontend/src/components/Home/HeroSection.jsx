@@ -11,8 +11,9 @@ import img5 from '../../assets/hero/hero-05.jpg';
 import img6 from '../../assets/hero/hero-06.jpg';
 import img7 from '../../assets/hero/hero-07.jpg';
 import img8 from '../../assets/hero/hero-08.jpg';
+import img9 from '../../assets/hero/hero-09.jpg';
 
-const images = [img0, img1, img2, img3, img4, img5, img6, img7, img8];
+const images = [img0, img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
