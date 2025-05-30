@@ -4,7 +4,7 @@ import { Instagram, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black py-10 px-6 mt-20">
+    <footer className="bg-white text-black py-10 px-2 mt-20">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
