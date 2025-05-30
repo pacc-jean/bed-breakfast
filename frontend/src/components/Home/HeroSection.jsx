@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
 import '../../App.css';
 
@@ -82,11 +83,13 @@ const HeroSection = () => {
             A tranquil escape for B&B stays, camping, and intimate events — right next to Lake Nakuru National Park.
           </span>
         </h1>
-        <button
-          className="mt-8 px-8 py-3 rounded-full text-lg font-semibold transition pointer-events-auto glossy-button"
-        >
-          Book With Us
-        </button>
+        <Link to="/book">
+  <button
+    className="mt-8 px-8 py-3 rounded-full text-lg font-semibold transition pointer-events-auto glossy-button"
+  >
+    Book With Us
+  </button>
+</Link>
       </div>
 
       {/* LEFT ARROW — big arrowhead, no box */}

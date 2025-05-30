@@ -1,9 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Consistent/Navbar';
+import MobileBottomNav from './components/Consistent/MobileBottom Nav';
 import Footer from './components/Consistent/Footer';
 import HomePage from './pages/HomePage';
-import MobileBottomNav from './components/Consistent/MobileBottom Nav';
+import BookingsPage from './pages/BookingsPage';
+
 const App = () => {
   return (
     <div className="min-h-screen bg-white">
@@ -11,7 +13,7 @@ const App = () => {
       <MobileBottomNav />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* Future routes like FAQ, Contact, Booking will go here */}
+        <Route path="/book" element={<BookingsPage />} />
       </Routes>
       <Footer />
     </div>
