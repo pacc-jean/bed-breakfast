@@ -33,10 +33,10 @@ const Navbar = () => {
 
       {/* Right side links + button */}
       <div className="w-1/3 flex justify-end items-center space-x-6 text-sm font-medium">
-        <Link to="/faq" className="text-gray-700 hover:text-black transition">
+        <Link to="/faq" className="text-gray-700 hover:text-black hover:underline transition">
           FAQ
         </Link>
-        <Link to="/contact" className="text-gray-700 hover:text-black transition">
+        <Link to="/contact" className="text-gray-700 hover:text-black hover:underline transition">
           Contact
         </Link>
 
