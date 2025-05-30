@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const BookingForm = () => {
-  const [formData, setFormData] = useState({
+  const initialState = {
     name: '',
     email: '',
     phone: '',
@@ -9,8 +9,9 @@ const BookingForm = () => {
     checkOut: '',
     guests: 1,
     notes: '',
-  });
+  };
 
+  const [formData, setFormData] = useState(initialState);
   const [errors, setErrors] = useState({});
 
   const validate = () => {
@@ -27,18 +28,14 @@ const BookingForm = () => {
 
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
-    } else if (
-      !/^\+?[\d\s\-()]{7,}$/i.test(formData.phone)
-    ) {
+    } else if (!/^\+?[\d\s\-()]{7,}$/i.test(formData.phone)) {
       newErrors.phone = 'Invalid phone number';
     }
 
     if (!formData.checkIn) newErrors.checkIn = 'Check-in date is required';
     if (!formData.checkOut) {
       newErrors.checkOut = 'Check-out date is required';
-    } else if (
-      formData.checkIn && formData.checkOut <= formData.checkIn
-    ) {
+    } else if (formData.checkIn && formData.checkOut <= formData.checkIn) {
       newErrors.checkOut = 'Check-out must be after check-in';
     }
 
@@ -48,7 +45,6 @@ const BookingForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error for this field on change
     setErrors((prev) => ({ ...prev, [name]: '' }));
   };
 
@@ -62,6 +58,23 @@ const BookingForm = () => {
 
     // Submit logic here (API call or state update)
     alert('Booking submitted! Thanks for choosing Lion Hill.');
+
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      checkIn: '',
+      checkOut: '',
+      guests: 1,
+      notes: '',
+    });
+    setErrors({});
+  };
+
+  const handleReset = () => {
+    setFormData(initialState);
+    setErrors({});
   };
 
   const nights =
@@ -74,10 +87,8 @@ const BookingForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-lg mx-auto p-4">
-      {/* Asterisk Explainer */}
       <p className="text-sm text-gray-600 mb-4">
-        Fields marked with <span className="text-red-600">*</span> are
-        required.
+        Fields marked with <span className="text-red-600">*</span> are required.
       </p>
 
       {/* Name */}
@@ -93,9 +104,7 @@ const BookingForm = () => {
           errors.name ? 'border-red-600' : 'border-gray-300'
         }`}
       />
-      {errors.name && (
-        <p className="text-red-600 text-xs mt-1">{errors.name}</p>
-      )}
+      {errors.name && <p className="text-red-600 text-xs mt-1">{errors.name}</p>}
 
       {/* Email */}
       <label className="block text-sm font-medium mb-1">
@@ -111,9 +120,7 @@ const BookingForm = () => {
           errors.email ? 'border-red-600' : 'border-gray-300'
         }`}
       />
-      {errors.email && (
-        <p className="text-red-600 text-xs mt-1">{errors.email}</p>
-      )}
+      {errors.email && <p className="text-red-600 text-xs mt-1">{errors.email}</p>}
 
       {/* Phone */}
       <label className="block text-sm font-medium mb-1">
@@ -129,9 +136,7 @@ const BookingForm = () => {
           errors.phone ? 'border-red-600' : 'border-gray-300'
         }`}
       />
-      {errors.phone && (
-        <p className="text-red-600 text-xs mt-1">{errors.phone}</p>
-      )}
+      {errors.phone && <p className="text-red-600 text-xs mt-1">{errors.phone}</p>}
 
       {/* Dates */}
       <div className="flex gap-4">
@@ -181,7 +186,9 @@ const BookingForm = () => {
       )}
 
       {/* Guests */}
-      <label className="block text-sm font-medium mb-1">Number of Guests</label>
+      <label className="block text-sm font-medium mb-1">
+        Number of Guests <span className="text-red-600">*</span>
+      </label>
       <input
         name="guests"
         type="number"
@@ -202,13 +209,22 @@ const BookingForm = () => {
         className="w-full border p-2 rounded"
       />
 
-      {/* Submit button */}
-      <button
-        type="submit"
-        className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition"
-      >
-        Submit Booking
-      </button>
+      {/* Buttons */}
+      <div className="flex flex-col sm:flex-row sm:justify-between gap-4">
+        <button
+          type="submit"
+          className="w-full sm:w-auto bg-black text-white py-2 px-6 rounded hover:bg-gray-800 transition"
+        >
+          Submit Booking
+        </button>
+        <button
+          type="button"
+          onClick={handleReset}
+          className="w-full sm:w-auto border border-gray-400 text-gray-800 py-2 px-6 rounded hover:bg-gray-100 transition"
+        >
+          Clear Form
+        </button>
+      </div>
     </form>
   );
 };
