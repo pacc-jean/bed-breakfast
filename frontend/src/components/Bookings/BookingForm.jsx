@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../App.css';
 
 const BookingForm = () => {
   const initialState = {
@@ -56,19 +57,9 @@ const BookingForm = () => {
       return;
     }
 
-    // Submit logic here (API call or state update)
     alert('Booking submitted! Thanks for choosing Lion Hill.');
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      checkIn: '',
-      checkOut: '',
-      guests: 1,
-      notes: '',
-    });
+    setFormData(initialState);
     setErrors({});
   };
 
@@ -100,6 +91,7 @@ const BookingForm = () => {
         placeholder="Your Name"
         value={formData.name}
         onChange={handleChange}
+        required
         className={`w-full border p-2 rounded ${
           errors.name ? 'border-red-600' : 'border-gray-300'
         }`}
@@ -116,6 +108,7 @@ const BookingForm = () => {
         placeholder="Email"
         value={formData.email}
         onChange={handleChange}
+        required
         className={`w-full border p-2 rounded ${
           errors.email ? 'border-red-600' : 'border-gray-300'
         }`}
@@ -132,6 +125,7 @@ const BookingForm = () => {
         placeholder="Phone Number"
         value={formData.phone}
         onChange={handleChange}
+        required
         className={`w-full border p-2 rounded ${
           errors.phone ? 'border-red-600' : 'border-gray-300'
         }`}
@@ -149,6 +143,7 @@ const BookingForm = () => {
             type="date"
             value={formData.checkIn}
             onChange={handleChange}
+            required
             className={`w-full border p-2 rounded ${
               errors.checkIn ? 'border-red-600' : 'border-gray-300'
             }`}
@@ -168,6 +163,7 @@ const BookingForm = () => {
             min={formData.checkIn || ''}
             value={formData.checkOut}
             onChange={handleChange}
+            required
             className={`w-full border p-2 rounded ${
               errors.checkOut ? 'border-red-600' : 'border-gray-300'
             }`}
@@ -195,6 +191,7 @@ const BookingForm = () => {
         value={formData.guests}
         onChange={handleChange}
         min="1"
+        required
         className="w-full border p-2 rounded"
         placeholder="Number of Guests"
       />
@@ -206,7 +203,8 @@ const BookingForm = () => {
         placeholder="Additional Notes We Should Know"
         value={formData.notes}
         onChange={handleChange}
-        className="w-full border p-2 rounded"
+        className="w-full border p-2 rounded slick-scroll resize-none"
+        style={{ minHeight: '120px', maxHeight: '300px', overflowY: 'auto' }}
       />
 
       {/* Buttons */}

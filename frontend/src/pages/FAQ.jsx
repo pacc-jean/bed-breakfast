@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import FAQAccordion from '../components/FAQ/FAQAccordion';
 
 const faqList = [
@@ -13,8 +13,7 @@ const faqList = [
   },
   {
     question: 'Is breakfast included in the room price?',
-    answer:
-      'Yes, a complimentary breakfast is included for all B&B guests.',
+    answer: 'Yes, a complimentary breakfast is included for all B&B guests.',
   },
   {
     question: 'Do you offer parking on site?',
@@ -34,12 +33,25 @@ const faqList = [
 ];
 
 const FAQ = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Smooth UX for mobile scroll
+  }, []);
+
   return (
-    <section className="max-w-3xl mx-auto p-6 pt-[150px]">
-      <h1 className="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h1>
-      {faqList.map((item, index) => (
-        <FAQAccordion key={index} question={item.question} answer={item.answer} />
-      ))}
+    <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-[140px] pb-20">
+      <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 text-center">Frequently Asked Questions</h1>
+      <p className="text-center text-gray-600 mb-10">
+        Got a question? We’ve got answers. If you can’t find what you’re looking for, feel free to{' '}
+        <a href="/contact" className="text-black underline hover:text-red-600 transition">
+          contact us
+        </a>
+        .
+      </p>
+      <div className="space-y-4">
+        {faqList.map((item, index) => (
+          <FAQAccordion key={index} question={item.question} answer={item.answer} />
+        ))}
+      </div>
     </section>
   );
 };

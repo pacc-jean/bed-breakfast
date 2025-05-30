@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import HomeIcon from '@heroicons/react/24/outline/HomeIcon';
 import PhoneIcon from '@heroicons/react/24/outline/PhoneIcon';
 import CalendarIcon from '@heroicons/react/24/outline/CalendarIcon';
+import QuestionMarkCircleIcon from '@heroicons/react/24/outline/QuestionMarkCircleIcon'; // <- Added FAQ icon
 
 const MobileBottomNav = () => {
   const location = useLocation();
@@ -18,6 +19,16 @@ const MobileBottomNav = () => {
         >
           <HomeIcon className="h-6 w-6" />
           Home
+        </Link>
+
+        <Link
+          to="/faq"
+          className={`flex flex-col items-center text-xs ${
+            location.pathname === '/faq' ? 'text-black' : 'text-gray-500'
+          }`}
+        >
+          <QuestionMarkCircleIcon className="h-6 w-6" />
+          FAQ
         </Link>
 
         <Link
