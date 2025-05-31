@@ -12,7 +12,11 @@ const BookingSummary = ({ booking, onEdit, onCancel }) => {
     return (
       <div className="text-center p-6 bg-green-50 border border-green-200 rounded">
         <h2 className="text-2xl font-bold mb-2 text-green-700">Thank you, {booking.name}!</h2>
-        <p className="text-gray-700">Your booking for <strong>{booking.bookingType}</strong> has been received. <br/> A receipt of your booking has been sent to your email.<br/> Contact Us for any inquiries.</p>
+        <p className="text-gray-700">Your booking for <strong>{booking.bookingType}</strong> has been received. <br/> A receipt of your booking has been sent to your email.<br/> 
+            <a href="/contact" className="text-black underline hover:text-red-600 transition">
+            Contact us
+            </a> for any inquiries.
+        </p>
       </div>
     );
   }
@@ -56,7 +60,7 @@ const BookingSummary = ({ booking, onEdit, onCancel }) => {
           onClick={onEdit}
           className="w-full sm:w-auto px-4 py-2 border border-blue-400 text-blue-700 rounded hover:bg-blue-50 transition"
         >
-          Edit Form
+          Back
         </button>
         <button
           onClick={handleConfirm}

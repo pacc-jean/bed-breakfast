@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
-import '../../App.css';
 
 import img0 from '../../assets/hero/hero-00.jpg';
 import img1 from '../../assets/hero/hero-01.jpg';
