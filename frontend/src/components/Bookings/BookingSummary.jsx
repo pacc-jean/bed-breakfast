@@ -17,7 +17,9 @@ const BookingSummary = ({ booking, onEdit, onCancel }) => {
           Thank you, {booking.name}!
         </h2>
         <p className="text-gray-700 leading-relaxed">
-          Your <strong>{booking.bookingType}</strong> booking has been confirmed. A confirmation with your booking receipt has been sent to your email.
+          Your <strong>{booking.bookingType}</strong> booking has been confirmed.
+          <br />
+           A confirmation with your booking receipt has been sent to your email.
           <br />
           <a
             href="/contact"
