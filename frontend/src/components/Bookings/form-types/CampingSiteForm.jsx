@@ -17,25 +17,34 @@ const CampingSiteForm = ({ onSubmit }) => {
 
   const totalGuests = Number(formData.adults) + Number(formData.children);
 
+  const nights =
+    formData.fromDate && formData.toDate
+      ? Math.max(
+          (new Date(formData.toDate) - new Date(formData.fromDate)) /
+            (1000 * 60 * 60 * 24),
+          0
+        )
+      : 0;
+
   const validate = () => {
     const newErrors = {};
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     const phoneRegex = /^\+?[\d\s\-()]{7,}$/;
 
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.email.trim()) newErrors.email = 'Email is required';
-    else if (!emailRegex.test(formData.email)) newErrors.email = 'Invalid email';
-    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
-    else if (!phoneRegex.test(formData.phone)) newErrors.phone = 'Invalid phone number';
+    if (!formData.name.trim()) newErrors.name = 'Name is required !';
+    if (!formData.email.trim()) newErrors.email = 'Email is required !';
+    else if (!emailRegex.test(formData.email)) newErrors.email = 'Invalid email format !';
+    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required !';
+    else if (!phoneRegex.test(formData.phone)) newErrors.phone = 'Invalid phone number format !';
 
-    if (!formData.fromDate) newErrors.fromDate = 'Start date is required';
-    if (!formData.toDate) newErrors.toDate = 'End date is required';
+    if (!formData.fromDate) newErrors.fromDate = 'Start date is required !';
+    if (!formData.toDate) newErrors.toDate = 'End date is required !';
     else if (formData.toDate <= formData.fromDate) {
-      newErrors.toDate = 'End date must be after start date';
+      newErrors.toDate = 'End date must be after start date !';
     }
 
     if (totalGuests === 0) {
-      newErrors.guests = 'At least one guest must be included';
+      newErrors.guests = 'At least one guest must be included !';
     }
 
     return newErrors;
@@ -136,6 +145,13 @@ const CampingSiteForm = ({ onSubmit }) => {
         </div>
       </div>
 
+      {/* Nights info */}
+      {nights > 0 && (
+        <div className="text-sm text-blue-600">
+          You've booked a {nights}-night camping adventure.
+        </div>
+      )}
+
       {/* Guests */}
       <div className="flex gap-4">
         <div className="flex-1">
@@ -146,7 +162,7 @@ const CampingSiteForm = ({ onSubmit }) => {
             min="0"
             value={formData.adults}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className={`w-full border p-2 rounded ${errors.guests ? 'border-red-600' : ''}`}
           />
         </div>
 
@@ -158,7 +174,7 @@ const CampingSiteForm = ({ onSubmit }) => {
             min="0"
             value={formData.children}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className={`w-full border p-2 rounded ${errors.guests ? 'border-red-600' : ''}`}
           />
         </div>
       </div>

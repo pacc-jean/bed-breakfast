@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const EventSpaceForm = ({ onSubmit }) => {
   const initialState = {
@@ -14,26 +14,47 @@ const EventSpaceForm = ({ onSubmit }) => {
 
   const [formData, setFormData] = useState(initialState);
   const [errors, setErrors] = useState({});
+  const [hours, setHours] = useState(0);
+
+  useEffect(() => {
+    if (formData.startTime && formData.endTime) {
+      const [startHour, startMin] = formData.startTime.split(':').map(Number);
+      const [endHour, endMin] = formData.endTime.split(':').map(Number);
+
+      const start = new Date(0, 0, 0, startHour, startMin);
+      const end = new Date(0, 0, 0, endHour, endMin);
+
+      let diff = (end - start) / (1000 * 60 * 60); // hours
+
+      if (diff > 0) {
+        setHours(diff);
+      } else {
+        setHours(0);
+      }
+    } else {
+      setHours(0);
+    }
+  }, [formData.startTime, formData.endTime]);
 
   const validate = () => {
     const newErrors = {};
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     const phoneRegex = /^\+?[\d\s\-()]{7,}$/;
 
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.email.trim()) newErrors.email = 'Email is required';
-    else if (!emailRegex.test(formData.email)) newErrors.email = 'Invalid email';
-    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
-    else if (!phoneRegex.test(formData.phone)) newErrors.phone = 'Invalid phone number';
+    if (!formData.name.trim()) newErrors.name = 'Name is required !';
+    if (!formData.email.trim()) newErrors.email = 'Email is required !';
+    else if (!emailRegex.test(formData.email)) newErrors.email = 'Invalid email format !';
+    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required !';
+    else if (!phoneRegex.test(formData.phone)) newErrors.phone = 'Invalid phone number format !';
 
-    if (!formData.eventDate) newErrors.eventDate = 'Event date is required';
-    if (!formData.startTime) newErrors.startTime = 'Start time is required';
-    if (!formData.endTime) newErrors.endTime = 'End time is required';
+    if (!formData.eventDate) newErrors.eventDate = 'Event date is required !';
+    if (!formData.startTime) newErrors.startTime = 'Start time is required !';
+    if (!formData.endTime) newErrors.endTime = 'End time is required !';
     else if (formData.startTime && formData.endTime <= formData.startTime) {
-      newErrors.endTime = 'End time must be after start time';
+      newErrors.endTime = 'End time must be after start time !';
     }
 
-    if (!formData.eventType) newErrors.eventType = 'Please select the event type';
+    if (!formData.eventType) newErrors.eventType = 'Please select the event type !';
 
     return newErrors;
   };
@@ -143,6 +164,13 @@ const EventSpaceForm = ({ onSubmit }) => {
           {errors.endTime && <p className="text-red-600 text-xs">{errors.endTime}</p>}
         </div>
       </div>
+
+      {/* Hours info */}
+      {hours > 0 && (
+        <div className="text-sm text-blue-600">
+          You’ve selected a {hours.toFixed(1)}-hour event.
+        </div>
+      )}
 
       {/* Event Type */}
       <label className="block text-sm font-medium">Event Type
