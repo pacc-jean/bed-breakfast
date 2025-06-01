@@ -24,13 +24,9 @@ const EventSpaceForm = ({ onSubmit }) => {
       const start = new Date(0, 0, 0, startHour, startMin);
       const end = new Date(0, 0, 0, endHour, endMin);
 
-      let diff = (end - start) / (1000 * 60 * 60); // hours
+      const diff = (end - start) / (1000 * 60 * 60); // hours
 
-      if (diff > 0) {
-        setHours(diff);
-      } else {
-        setHours(0);
-      }
+      setHours(diff > 0 ? diff : 0);
     } else {
       setHours(0);
     }
@@ -41,16 +37,43 @@ const EventSpaceForm = ({ onSubmit }) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     const phoneRegex = /^\+?[\d\s\-()]{7,}$/;
 
+    const now = new Date();
+    const todayStr = now.toISOString().split('T')[0];
+    const isToday = formData.eventDate === todayStr;
+
     if (!formData.name.trim()) newErrors.name = 'Name is required !';
     if (!formData.email.trim()) newErrors.email = 'Email is required !';
     else if (!emailRegex.test(formData.email)) newErrors.email = 'Invalid email format !';
+
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required !';
     else if (!phoneRegex.test(formData.phone)) newErrors.phone = 'Invalid phone number format !';
 
-    if (!formData.eventDate) newErrors.eventDate = 'Event date is required !';
-    if (!formData.startTime) newErrors.startTime = 'Start time is required !';
-    if (!formData.endTime) newErrors.endTime = 'End time is required !';
-    else if (formData.startTime && formData.endTime <= formData.startTime) {
+    if (!formData.eventDate) {
+      newErrors.eventDate = 'Event date is required !';
+    } else {
+      const selectedDate = new Date(formData.eventDate);
+      selectedDate.setHours(0, 0, 0, 0);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (selectedDate < today) {
+        newErrors.eventDate = 'Event date cannot be in the past !';
+      }
+    }
+
+    if (!formData.startTime) {
+      newErrors.startTime = 'Start time is required !';
+    } else if (isToday) {
+      const [startHour, startMin] = formData.startTime.split(':').map(Number);
+      const start = new Date();
+      start.setHours(startHour, startMin, 0, 0);
+      if (start < now) {
+        newErrors.startTime = 'Start time cannot be in the past !';
+      }
+    }
+
+    if (!formData.endTime) {
+      newErrors.endTime = 'End time is required !';
+    } else if (formData.startTime && formData.endTime <= formData.startTime) {
       newErrors.endTime = 'End time must be after start time !';
     }
 
@@ -75,6 +98,8 @@ const EventSpaceForm = ({ onSubmit }) => {
     onSubmit(formData);
   };
 
+  const todayString = new Date().toISOString().split('T')[0];
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <p className="text-sm text-gray-600 mb-4">
@@ -82,8 +107,8 @@ const EventSpaceForm = ({ onSubmit }) => {
       </p>
 
       {/* Name */}
-      <label className="block text-sm font-medium">Name
-        <span className="text-red-600">*</span>
+      <label className="block text-sm font-medium">
+        Name <span className="text-red-600">*</span>
       </label>
       <input
         name="name"
@@ -95,8 +120,8 @@ const EventSpaceForm = ({ onSubmit }) => {
       {errors.name && <p className="text-red-600 text-xs">{errors.name}</p>}
 
       {/* Email */}
-      <label className="block text-sm font-medium">Email
-        <span className="text-red-600">*</span>
+      <label className="block text-sm font-medium">
+        Email <span className="text-red-600">*</span>
       </label>
       <input
         name="email"
@@ -109,8 +134,8 @@ const EventSpaceForm = ({ onSubmit }) => {
       {errors.email && <p className="text-red-600 text-xs">{errors.email}</p>}
 
       {/* Phone */}
-      <label className="block text-sm font-medium">Phone Number
-        <span className="text-red-600">*</span>
+      <label className="block text-sm font-medium">
+        Phone Number <span className="text-red-600">*</span>
       </label>
       <input
         name="phone"
@@ -123,14 +148,15 @@ const EventSpaceForm = ({ onSubmit }) => {
       {errors.phone && <p className="text-red-600 text-xs">{errors.phone}</p>}
 
       {/* Event Date */}
-      <label className="block text-sm font-medium">Event Date
-        <span className="text-red-600">*</span>
+      <label className="block text-sm font-medium">
+        Event Date <span className="text-red-600">*</span>
       </label>
       <input
         type="date"
         name="eventDate"
         value={formData.eventDate}
         onChange={handleChange}
+        min={todayString}
         className={`w-full border p-2 rounded ${errors.eventDate ? 'border-red-600' : ''}`}
       />
       {errors.eventDate && <p className="text-red-600 text-xs">{errors.eventDate}</p>}
@@ -138,8 +164,8 @@ const EventSpaceForm = ({ onSubmit }) => {
       {/* Start and End Times */}
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-medium">Start Time
-            <span className="text-red-600">*</span>
+          <label className="block text-sm font-medium">
+            Start Time <span className="text-red-600">*</span>
           </label>
           <input
             type="time"
@@ -151,8 +177,8 @@ const EventSpaceForm = ({ onSubmit }) => {
           {errors.startTime && <p className="text-red-600 text-xs">{errors.startTime}</p>}
         </div>
         <div className="flex-1">
-          <label className="block text-sm font-medium">End Time
-            <span className="text-red-600">*</span>
+          <label className="block text-sm font-medium">
+            End Time <span className="text-red-600">*</span>
           </label>
           <input
             type="time"
@@ -173,8 +199,8 @@ const EventSpaceForm = ({ onSubmit }) => {
       )}
 
       {/* Event Type */}
-      <label className="block text-sm font-medium">Event Type
-        <span className="text-red-600">*</span>
+      <label className="block text-sm font-medium">
+        Event Type <span className="text-red-600">*</span>
       </label>
       <select
         name="eventType"

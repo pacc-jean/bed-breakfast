@@ -26,6 +26,8 @@ const BnbStayForm = ({ onSubmit }) => {
         )
       : 0;
 
+  const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+
   const validate = () => {
     const newErrors = {};
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -38,6 +40,8 @@ const BnbStayForm = ({ onSubmit }) => {
     else if (!phoneRegex.test(formData.phone)) newErrors.phone = 'Invalid phone number format !';
 
     if (!formData.checkIn) newErrors.checkIn = 'Check-in date is required !';
+    else if (formData.checkIn < today) newErrors.checkIn = 'Check-in date can’t be in the past !';
+
     if (!formData.checkOut) newErrors.checkOut = 'Check-out date is required !';
     else if (formData.checkOut <= formData.checkIn) {
       newErrors.checkOut = 'Check-out date must be after check-in date !';
@@ -124,6 +128,7 @@ const BnbStayForm = ({ onSubmit }) => {
             name="checkIn"
             value={formData.checkIn}
             onChange={handleChange}
+            min={today}
             className={`w-full border p-2 rounded ${errors.checkIn ? 'border-red-600' : ''}`}
           />
           {errors.checkIn && <p className="text-red-600 text-xs">{errors.checkIn}</p>}
@@ -138,7 +143,7 @@ const BnbStayForm = ({ onSubmit }) => {
             name="checkOut"
             value={formData.checkOut}
             onChange={handleChange}
-            min={formData.checkIn || ''}
+            min={formData.checkIn || today}
             className={`w-full border p-2 rounded ${errors.checkOut ? 'border-red-600' : ''}`}
           />
           {errors.checkOut && <p className="text-red-600 text-xs">{errors.checkOut}</p>}

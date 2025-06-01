@@ -20,8 +20,7 @@ const CampingSiteForm = ({ onSubmit }) => {
   const nights =
     formData.fromDate && formData.toDate
       ? Math.max(
-          (new Date(formData.toDate) - new Date(formData.fromDate)) /
-            (1000 * 60 * 60 * 24),
+          (new Date(formData.toDate) - new Date(formData.fromDate)) / (1000 * 60 * 60 * 24),
           0
         )
       : 0;
@@ -31,15 +30,24 @@ const CampingSiteForm = ({ onSubmit }) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     const phoneRegex = /^\+?[\d\s\-()]{7,}$/;
 
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Normalize to midnight
+
+    const startDate = formData.fromDate ? new Date(formData.fromDate) : null;
+    const endDate = formData.toDate ? new Date(formData.toDate) : null;
+
     if (!formData.name.trim()) newErrors.name = 'Name is required !';
     if (!formData.email.trim()) newErrors.email = 'Email is required !';
     else if (!emailRegex.test(formData.email)) newErrors.email = 'Invalid email format !';
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required !';
     else if (!phoneRegex.test(formData.phone)) newErrors.phone = 'Invalid phone number format !';
 
-    if (!formData.fromDate) newErrors.fromDate = 'Start date is required !';
-    if (!formData.toDate) newErrors.toDate = 'End date is required !';
-    else if (formData.toDate <= formData.fromDate) {
+    if (!startDate) newErrors.fromDate = 'Start date is required !';
+    else if (startDate < today) newErrors.fromDate = 'Start date cannot be in the past !';
+
+    if (!endDate) newErrors.toDate = 'End date is required !';
+    else if (endDate < today) newErrors.toDate = 'End date cannot be in the past !';
+    else if (startDate && endDate <= startDate) {
       newErrors.toDate = 'End date must be after start date !';
     }
 
@@ -66,6 +74,8 @@ const CampingSiteForm = ({ onSubmit }) => {
     onSubmit(formData);
   };
 
+  const todayString = new Date().toISOString().split('T')[0];
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <p className="text-sm text-gray-600 mb-4">
@@ -73,8 +83,8 @@ const CampingSiteForm = ({ onSubmit }) => {
       </p>
 
       {/* Name */}
-      <label className="block text-sm font-medium">Name
-        <span className="text-red-600">*</span>
+      <label className="block text-sm font-medium">
+        Name <span className="text-red-600">*</span>
       </label>
       <input
         name="name"
@@ -86,8 +96,8 @@ const CampingSiteForm = ({ onSubmit }) => {
       {errors.name && <p className="text-red-600 text-xs">{errors.name}</p>}
 
       {/* Email */}
-      <label className="block text-sm font-medium">Email
-        <span className="text-red-600">*</span>
+      <label className="block text-sm font-medium">
+        Email <span className="text-red-600">*</span>
       </label>
       <input
         name="email"
@@ -100,8 +110,8 @@ const CampingSiteForm = ({ onSubmit }) => {
       {errors.email && <p className="text-red-600 text-xs">{errors.email}</p>}
 
       {/* Phone */}
-      <label className="block text-sm font-medium">Phone Number
-        <span className="text-red-600">*</span>
+      <label className="block text-sm font-medium">
+        Phone Number <span className="text-red-600">*</span>
       </label>
       <input
         name="phone"
@@ -116,29 +126,30 @@ const CampingSiteForm = ({ onSubmit }) => {
       {/* Dates */}
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-medium">From Date
-            <span className="text-red-600">*</span>
+          <label className="block text-sm font-medium">
+            From Date <span className="text-red-600">*</span>
           </label>
           <input
             type="date"
             name="fromDate"
             value={formData.fromDate}
             onChange={handleChange}
+            min={todayString}
             className={`w-full border p-2 rounded ${errors.fromDate ? 'border-red-600' : ''}`}
           />
           {errors.fromDate && <p className="text-red-600 text-xs">{errors.fromDate}</p>}
         </div>
 
         <div className="flex-1">
-          <label className="block text-sm font-medium">To Date
-            <span className="text-red-600">*</span>
+          <label className="block text-sm font-medium">
+            To Date <span className="text-red-600">*</span>
           </label>
           <input
             type="date"
             name="toDate"
             value={formData.toDate}
             onChange={handleChange}
-            min={formData.fromDate || ''}
+            min={formData.fromDate || todayString}
             className={`w-full border p-2 rounded ${errors.toDate ? 'border-red-600' : ''}`}
           />
           {errors.toDate && <p className="text-red-600 text-xs">{errors.toDate}</p>}
