@@ -42,7 +42,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom text */}
-      <div className="mt-8 text-center text-xs text-gray-400">
+      <div className="mt-8 mb-8 md:mb-0 text-center text-xs text-gray-400">
         © {new Date().getFullYear()} Lion Hill Place. All rights reserved.
       </div>
     </footer>
