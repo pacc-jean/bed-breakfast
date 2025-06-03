@@ -6,7 +6,7 @@ const BookingSummary = ({ booking, onEdit, onCancel }) => {
 
   const handleConfirm = async () => {
   try {
-    const response = await fetch('https://bed-breakfast.onrender.com/api/bookings/confirm', {
+    const response = await fetch('${import.meta.env.VITE_API_URL}/api/bookings/confirm', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
