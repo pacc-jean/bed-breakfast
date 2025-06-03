@@ -5,28 +5,29 @@ const BookingSummary = ({ booking, onEdit, onCancel }) => {
   const [confirmed, setConfirmed] = useState(false);
 
   const handleConfirm = async () => {
-  try {
-    const response = await fetch('${import.meta.env.VITE_API_URL}/api/bookings/confirm', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(booking),
-    });
+    console.log(`${import.meta.env.VITE_API_URL}/api/bookings/confirm`);
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/bookings/confirm`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(booking),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (response.ok) {
-      setConfirmed(true);
-    } else {
-      console.error('Booking failed:', data.error);
-      alert('Booking confirmation failed. Please try again.');
+      if (response.ok) {
+        setConfirmed(true);
+      } else {
+        console.error('Booking failed:', data.error);
+        alert('Booking confirmation failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('Something went wrong. Please try again later.');
     }
-  } catch (error) {
-    console.error('Network error:', error);
-    alert('Something went wrong. Please try again later.');
-  }
-};
+  };
 
   if (confirmed) {
     return (
