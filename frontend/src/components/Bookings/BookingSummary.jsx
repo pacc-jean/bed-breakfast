@@ -4,10 +4,29 @@ import { CheckCircleIcon, CalendarIcon, UserIcon, ClockIcon } from '@heroicons/r
 const BookingSummary = ({ booking, onEdit, onCancel }) => {
   const [confirmed, setConfirmed] = useState(false);
 
-  const handleConfirm = () => {
-    // Submit to backend in real flow
-    setConfirmed(true);
-  };
+  const handleConfirm = async () => {
+  try {
+    const response = await fetch('http://localhost:5000/api/bookings/confirm', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(booking),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setConfirmed(true);
+    } else {
+      console.error('Booking failed:', data.error);
+      alert('Booking confirmation failed. Please try again.');
+    }
+  } catch (error) {
+    console.error('Network error:', error);
+    alert('Something went wrong. Please try again later.');
+  }
+};
 
   if (confirmed) {
     return (
