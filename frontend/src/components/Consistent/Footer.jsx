@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Mail, Phone } from 'lucide-react';
+import { Instagram, Mail, Whatsapp } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -44,7 +44,7 @@ const Footer = () => {
             aria-label="WhatsApp"
             className="hover:text-green-500 transition"
           >
-            <Phone size={24} />
+            <Whatsapp size={24} />
           </a>
         </div>
       </div>
