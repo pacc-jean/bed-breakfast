@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Mail } from 'lucide-react';
+import { Instagram, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,7 +9,6 @@ const Footer = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <img src="/lionhill.01.png" alt="Lion Hill Logo" className="h-[200px] object-contain" />
-          {/*<span className="text-xl font-bold">Lion Hill Place</span>*/}
         </Link>
 
         {/* Nav links */}
@@ -32,11 +31,20 @@ const Footer = () => {
             <Instagram size={24} />
           </a>
           <a
-            href="mailto:contact@lionhillplace.com"
+            href="mailto:lionhillplace@gmail.com"
             aria-label="Email"
             className="hover:text-red-500 transition"
           >
             <Mail size={24} />
+          </a>
+          <a
+            href="https://wa.me/254722774029"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            className="hover:text-green-500 transition"
+          >
+            <Phone size={24} />
           </a>
         </div>
       </div>
