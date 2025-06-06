@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Mail, Whatsapp } from 'lucide-react';
+import { FaInstagram, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -28,14 +28,14 @@ const Footer = () => {
             aria-label="Instagram"
             className="hover:text-red-500 transition"
           >
-            <Instagram size={24} />
+            <FaInstagram size={24} />
           </a>
           <a
             href="mailto:lionhillplace@gmail.com"
             aria-label="Email"
             className="hover:text-red-500 transition"
           >
-            <Mail size={24} />
+            <FaEnvelope size={24} />
           </a>
           <a
             href="https://wa.me/254722774029"
@@ -44,7 +44,7 @@ const Footer = () => {
             aria-label="WhatsApp"
             className="hover:text-green-500 transition"
           >
-            <Whatsapp size={24} />
+            <FaWhatsapp size={24} />
           </a>
         </div>
       </div>
