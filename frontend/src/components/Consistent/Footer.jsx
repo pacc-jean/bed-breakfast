@@ -5,7 +5,7 @@ import { FaInstagram, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer
-      className="relative bg-cover bg-center text-white py-16 px-4 mt-20"
+      className="relative bg-cover h-[150px] bg-center text-white py-16 px-4 mt-20"
       style={{ backgroundImage: `url('/banner-logo.jpg')` }}
     >
       {/* Overlay */}
