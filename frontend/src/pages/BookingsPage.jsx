@@ -36,7 +36,7 @@ const BookingsPage = () => {
       </p>
 
       {/* Booking type buttons ALWAYS visible */}
-      <div className="flex flex-wrap justify-center gap-4 mb-6">
+      <div className="flex flex-wrap justify-center gap-4 mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>
         {bookingOptions.map((type) => (
           <button
             key={type}
