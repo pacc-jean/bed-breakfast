@@ -74,37 +74,39 @@ const HeroSection = () => {
       </div>
 
       {/* OVERLAY, BUTTON & TEXT */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 flex flex-col justify-center items-center pt-28 px-6 text-center text-white select-none pointer-events-none">
-        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight max-w-4xl mb-6">
+      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 text-white select-none pointer-events-none flex flex-col justify-end items-center px-6 pb-12 text-center">
+        <h1 className="text-2xl md:text-3xl font-extrabold leading-tight max-w-4xl" style={{ fontFamily: 'Playfair Display, serif' }}>
           Welcome To Lion Hill Place
           <br />
-          <span className="text-xl md:text-2xl font-semibold mt-4 block">
+          <span
+            className="text-sm md:text-base font-semibold mt-4 block"
+            style={{ fontFamily: 'Inter, sans-serif' }}
+          >
             A tranquil escape for B&B stays, camping, and intimate events — right next to Lake Nakuru National Park.
           </span>
         </h1>
+
         <Link to="/book">
-  <button
-    className="mt-8 px-8 py-3 rounded-full text-lg font-semibold transition pointer-events-auto glossy-button"
-  >
-    Book With Us
-  </button>
-</Link>
+          <button className="mt-6 px-4 py-3 rounded-full text-base font-semibold transition pointer-events-auto glossy-button">
+            Book With Us
+          </button>
+        </Link>
       </div>
 
-      {/* LEFT ARROW — big arrowhead, no box */}
+      {/* LEFT ARROW */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-2 transform -translate-y-1/2 text-white pointer-events-auto select-none text-6xl leading-none"
+        className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 text-white text-4xl sm:text-6xl pointer-events-auto select-none z-10"
         aria-label="Previous Slide"
         style={{ background: 'none', border: 'none', padding: 0 }}
       >
         ‹
       </button>
 
-      {/* RIGHT ARROW — big arrowhead, no box */}
+      {/* RIGHT ARROW */}
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-2 transform -translate-y-1/2 text-white pointer-events-auto select-none text-6xl leading-none"
+        className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 text-white text-4xl sm:text-6xl pointer-events-auto select-none z-10"
         aria-label="Next Slide"
         style={{ background: 'none', border: 'none', padding: 0 }}
       >
