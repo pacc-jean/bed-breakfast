@@ -39,15 +39,15 @@ const FAQ = () => {
 
   return (
     <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-[140px] pb-20">
-      <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 text-center">Frequently Asked Questions</h1>
-      <p className="text-center text-gray-600 mb-10">
+      <h1 className="text-2xl sm:text-4xl font-extrabold mb-4 text-center" style={{ fontFamily: 'Playfair Display, serif' }}>Frequently Asked Questions</h1>
+      <p className="text-xs md:text-sm text-center text-gray-600 mb-10" style={{ fontFamily: 'Inter, sans-serif' }}>
         Got a question? We’ve got answers. If you can’t find what you’re looking for, feel free to{' '}
         <a href="/contact" className="text-black underline hover:text-red-600 transition">
           contact us
         </a>
         .
       </p>
-      <div className="space-y-4">
+      <div className="space-y-4" style={{ fontFamily: 'Inter, sans-serif' }}>
         {faqList.map((item, index) => (
           <FAQAccordion key={index} question={item.question} answer={item.answer} />
         ))}

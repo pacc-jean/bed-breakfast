@@ -72,12 +72,12 @@ const BnbStayForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <p className="text-sm text-gray-600 mb-4">
+      <p className="text-xs italic text-gray-600 mb-4 tracking-wide drop-shadow" style={{ fontFamily: 'Inter, sans-serif' }}>
         Fields marked with <span className="text-red-600">*</span> are required.
       </p>
 
       {/* Name */}
-      <label className="block text-sm font-medium">Name
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Name
         <span className="text-red-600">*</span>
       </label>
       <input
@@ -86,11 +86,13 @@ const BnbStayForm = ({ onSubmit }) => {
         onChange={handleChange}
         className={`w-full border p-2 rounded ${errors.name ? 'border-red-600' : ''}`}
         placeholder="Your Full Name"
+        style={{ fontFamily: 'Inter, sans-serif' }}
+
       />
       {errors.name && <p className="text-red-600 text-xs">{errors.name}</p>}
 
       {/* Email */}
-      <label className="block text-sm font-medium">Email
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Email
         <span className="text-red-600">*</span>
       </label>
       <input
@@ -100,11 +102,12 @@ const BnbStayForm = ({ onSubmit }) => {
         onChange={handleChange}
         className={`w-full border p-2 rounded ${errors.email ? 'border-red-600' : ''}`}
         placeholder="Your Email Address"
+        style={{ fontFamily: 'Inter, sans-serif' }}
       />
       {errors.email && <p className="text-red-600 text-xs">{errors.email}</p>}
 
       {/* Phone */}
-      <label className="block text-sm font-medium">Phone Number
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Phone Number
         <span className="text-red-600">*</span>
       </label>
       <input
@@ -114,13 +117,14 @@ const BnbStayForm = ({ onSubmit }) => {
         onChange={handleChange}
         className={`w-full border p-2 rounded ${errors.phone ? 'border-red-600' : ''}`}
         placeholder="Your Phone Number"
+        style={{ fontFamily: 'Inter, sans-serif' }}
       />
       {errors.phone && <p className="text-red-600 text-xs">{errors.phone}</p>}
 
       {/* Check-in & Check-out */}
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-medium">Check-in
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Check-in
             <span className="text-red-600">*</span>
           </label>
           <input
@@ -130,12 +134,13 @@ const BnbStayForm = ({ onSubmit }) => {
             onChange={handleChange}
             min={today}
             className={`w-full border p-2 rounded ${errors.checkIn ? 'border-red-600' : ''}`}
+            style={{ fontFamily: 'Inter, sans-serif' }}
           />
           {errors.checkIn && <p className="text-red-600 text-xs">{errors.checkIn}</p>}
         </div>
 
         <div className="flex-1">
-          <label className="block text-sm font-medium">Check-out
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Check-out
             <span className="text-red-600">*</span>
           </label>
           <input
@@ -145,6 +150,7 @@ const BnbStayForm = ({ onSubmit }) => {
             onChange={handleChange}
             min={formData.checkIn || today}
             className={`w-full border p-2 rounded ${errors.checkOut ? 'border-red-600' : ''}`}
+            style={{ fontFamily: 'Inter, sans-serif' }}
           />
           {errors.checkOut && <p className="text-red-600 text-xs">{errors.checkOut}</p>}
         </div>
@@ -152,7 +158,7 @@ const BnbStayForm = ({ onSubmit }) => {
 
       {/* Nights info */}
       {nights > 0 && (
-        <div className="text-sm text-blue-600">
+        <div className="text-sm text-blue-600" style={{ fontFamily: 'Inter, sans-serif' }}>
           You’ve selected a {nights}-night stay.
         </div>
       )}
@@ -160,7 +166,7 @@ const BnbStayForm = ({ onSubmit }) => {
       {/* Guests */}
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-medium">Adults</label>
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Adults</label>
           <input
             type="number"
             name="adults"
@@ -168,11 +174,12 @@ const BnbStayForm = ({ onSubmit }) => {
             value={formData.adults}
             onChange={handleChange}
             className={`w-full border p-2 rounded ${errors.guests ? 'border-red-600' : ''}`}
+            style={{ fontFamily: 'Inter, sans-serif' }}
           />
         </div>
 
         <div className="flex-1">
-          <label className="block text-sm font-medium">Children</label>
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Children</label>
           <input
             type="number"
             name="children"
@@ -180,25 +187,27 @@ const BnbStayForm = ({ onSubmit }) => {
             value={formData.children}
             onChange={handleChange}
             className={`w-full border p-2 rounded ${errors.guests ? 'border-red-600' : ''}`}
+            style={{ fontFamily: 'Inter, sans-serif' }}
           />
         </div>
       </div>
       {errors.guests && <p className="text-red-600 text-xs">{errors.guests}</p>}
 
       {/* Notes */}
-      <label className="block text-sm font-medium">Additional Notes</label>
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Additional Notes</label>
       <textarea
         name="notes"
         value={formData.notes}
         onChange={handleChange}
         placeholder="Anything we should know?"
         className="w-full border p-2 rounded slick-scroll resize-none"
-        style={{ minHeight: '120px', maxHeight: '300px', overflowY: 'auto' }}
+        style={{ minHeight: '120px', maxHeight: '300px', overflowY: 'auto', fontFamily: 'Inter, sans-serif' }}
       />
 
       <button
         type="submit"
         className="w-full bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition"
+        style={{ fontFamily: 'Inter, sans-serif' }}
       >
         Review Booking
       </button>

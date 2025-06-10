@@ -24,8 +24,9 @@ const EventSpaceForm = ({ onSubmit }) => {
       const start = new Date(0, 0, 0, startHour, startMin);
       const end = new Date(0, 0, 0, endHour, endMin);
 
-      const diff = (end - start) / (1000 * 60 * 60); // hours
+      if (end <= start) end.setDate(end.getDate() + 1);
 
+      const diff = (end - start) / (1000 * 60 * 60);
       setHours(diff > 0 ? diff : 0);
     } else {
       setHours(0);
@@ -65,9 +66,9 @@ const EventSpaceForm = ({ onSubmit }) => {
     } else if (isToday) {
       const [startHour, startMin] = formData.startTime.split(':').map(Number);
       const start = new Date();
-      start.setHours(startHour, startMin, 0, 0);
+      start.setHours(startHour, startMin + 5, 0, 0);
       if (start < now) {
-        newErrors.startTime = 'Start time cannot be in the past !';
+        newErrors.startTime = 'Start time must be at least 5 minutes from now!';
       }
     }
 
@@ -75,6 +76,18 @@ const EventSpaceForm = ({ onSubmit }) => {
       newErrors.endTime = 'End time is required !';
     } else if (formData.startTime && formData.endTime <= formData.startTime) {
       newErrors.endTime = 'End time must be after start time !';
+    } else {
+      const [startHour, startMin] = formData.startTime.split(':').map(Number);
+      const [endHour, endMin] = formData.endTime.split(':').map(Number);
+
+      const start = new Date(0, 0, 0, startHour, startMin);
+      const end = new Date(0, 0, 0, endHour, endMin);
+      if (end <= start) end.setDate(end.getDate() + 1);
+
+      const diff = (end - start) / (1000 * 60 * 60);
+      if (diff <= 0) {
+        newErrors.endTime = 'Event duration must be greater than zero!';
+      }
     }
 
     if (!formData.eventType) newErrors.eventType = 'Please select the event type !';
@@ -102,12 +115,12 @@ const EventSpaceForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <p className="text-sm text-gray-600 mb-4">
+      <p className="text-xs italic text-gray-600 mb-4 tracking-wide drop-shadow" style={{ fontFamily: 'Inter, sans-serif' }}>
         Fields marked with <span className="text-red-600">*</span> are required.
       </p>
 
       {/* Name */}
-      <label className="block text-sm font-medium">
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
         Name <span className="text-red-600">*</span>
       </label>
       <input
@@ -116,11 +129,12 @@ const EventSpaceForm = ({ onSubmit }) => {
         onChange={handleChange}
         className={`w-full border p-2 rounded ${errors.name ? 'border-red-600' : ''}`}
         placeholder="Your Full Name"
+        style={{ fontFamily: 'Inter, sans-serif' }}
       />
       {errors.name && <p className="text-red-600 text-xs">{errors.name}</p>}
 
       {/* Email */}
-      <label className="block text-sm font-medium">
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
         Email <span className="text-red-600">*</span>
       </label>
       <input
@@ -130,11 +144,12 @@ const EventSpaceForm = ({ onSubmit }) => {
         onChange={handleChange}
         className={`w-full border p-2 rounded ${errors.email ? 'border-red-600' : ''}`}
         placeholder="Your Email Address"
+        style={{ fontFamily: 'Inter, sans-serif' }}
       />
       {errors.email && <p className="text-red-600 text-xs">{errors.email}</p>}
 
-      {/* Phone */}
-      <label className="block text-sm font-medium">
+      {/* Phone Number */}
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
         Phone Number <span className="text-red-600">*</span>
       </label>
       <input
@@ -144,11 +159,12 @@ const EventSpaceForm = ({ onSubmit }) => {
         onChange={handleChange}
         className={`w-full border p-2 rounded ${errors.phone ? 'border-red-600' : ''}`}
         placeholder="Your Phone Number"
+        style={{ fontFamily: 'Inter, sans-serif' }}
       />
       {errors.phone && <p className="text-red-600 text-xs">{errors.phone}</p>}
 
       {/* Event Date */}
-      <label className="block text-sm font-medium">
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
         Event Date <span className="text-red-600">*</span>
       </label>
       <input
@@ -158,13 +174,14 @@ const EventSpaceForm = ({ onSubmit }) => {
         onChange={handleChange}
         min={todayString}
         className={`w-full border p-2 rounded ${errors.eventDate ? 'border-red-600' : ''}`}
+        style={{ fontFamily: 'Inter, sans-serif' }}
       />
       {errors.eventDate && <p className="text-red-600 text-xs">{errors.eventDate}</p>}
 
-      {/* Start and End Times */}
+      {/* Time Selection */}
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-medium">
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
             Start Time <span className="text-red-600">*</span>
           </label>
           <input
@@ -173,11 +190,13 @@ const EventSpaceForm = ({ onSubmit }) => {
             value={formData.startTime}
             onChange={handleChange}
             className={`w-full border p-2 rounded ${errors.startTime ? 'border-red-600' : ''}`}
+            style={{ fontFamily: 'Inter, sans-serif' }}
           />
           {errors.startTime && <p className="text-red-600 text-xs">{errors.startTime}</p>}
         </div>
+
         <div className="flex-1">
-          <label className="block text-sm font-medium">
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
             End Time <span className="text-red-600">*</span>
           </label>
           <input
@@ -186,20 +205,20 @@ const EventSpaceForm = ({ onSubmit }) => {
             value={formData.endTime}
             onChange={handleChange}
             className={`w-full border p-2 rounded ${errors.endTime ? 'border-red-600' : ''}`}
+            style={{ fontFamily: 'Inter, sans-serif' }}
           />
           {errors.endTime && <p className="text-red-600 text-xs">{errors.endTime}</p>}
         </div>
       </div>
 
-      {/* Hours info */}
       {hours > 0 && (
-        <div className="text-sm text-blue-600">
-          You’ve selected a {hours.toFixed(1)}-hour event.
+        <div className="text-sm text-blue-600" style={{ fontFamily: 'Inter, sans-serif' }}>
+          You’ve selected a {hours.toFixed(1)}-hour event duration.
         </div>
       )}
 
       {/* Event Type */}
-      <label className="block text-sm font-medium">
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
         Event Type <span className="text-red-600">*</span>
       </label>
       <select
@@ -207,6 +226,7 @@ const EventSpaceForm = ({ onSubmit }) => {
         value={formData.eventType}
         onChange={handleChange}
         className={`w-full border p-2 rounded ${errors.eventType ? 'border-red-600' : ''}`}
+        style={{ fontFamily: 'Inter, sans-serif' }}
       >
         <option value="">-- Select Type --</option>
         <option value="Intimate">Intimate Event</option>
@@ -214,20 +234,28 @@ const EventSpaceForm = ({ onSubmit }) => {
       </select>
       {errors.eventType && <p className="text-red-600 text-xs">{errors.eventType}</p>}
 
-      {/* Notes */}
-      <label className="block text-sm font-medium">Additional Notes</label>
+      {/* Additional Notes */}
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+        Additional Notes
+      </label>
       <textarea
         name="notes"
         value={formData.notes}
         onChange={handleChange}
-        placeholder="Let us know any special requests or details"
+        placeholder="Anything we should know?"
         className="w-full border p-2 rounded slick-scroll resize-none"
-        style={{ minHeight: '120px', maxHeight: '300px', overflowY: 'auto' }}
+        style={{
+          minHeight: '120px',
+          maxHeight: '300px',
+          overflowY: 'auto',
+          fontFamily: 'Inter, sans-serif',
+        }}
       />
 
       <button
         type="submit"
         className="w-full bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition"
+        style={{ fontFamily: 'Inter, sans-serif' }}
       >
         Review Booking
       </button>

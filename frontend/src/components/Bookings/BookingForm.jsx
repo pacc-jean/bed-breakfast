@@ -19,7 +19,7 @@ const BookingForm = ({ bookingType, onSubmit, onCancel }) => {
 
   return (
     <div className="max-w-3xl mx-auto p-4 border rounded shadow">
-      <h2 className="text-2xl font-bold mb-4 text-center">{bookingType} Booking</h2>
+      <h2 className="text-xl md:text-2xl font-bold mb-4 text-center" style={{ fontFamily: 'Playfair Display, serif' }}>{bookingType} Booking</h2>
       {renderForm()}
 
       {onCancel && (

@@ -10,7 +10,7 @@ const MobileBottomNav = () => {
 
   return (
     <nav className="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 z-50">
-      <div className="flex justify-around items-center py-3">
+      <div className="flex justify-around items-center py-3" style={{ fontFamily: 'Inter, sans-serif' }}>
         <Link
           to="/"
           className={`flex flex-col items-center text-xs ${

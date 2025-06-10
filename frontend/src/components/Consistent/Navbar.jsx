@@ -38,7 +38,7 @@ const Navbar = () => {
         isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
       } ${isVisible ? 'translate-y-0' : '-translate-y-full'} flex items-center justify-between`}
     >
-      <div className="hidden md:flex items-center space-x-6 text-sm font-medium ml-auto">
+      <div className="hidden md:flex items-center space-x-6 text-sm font-medium ml-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
         {currentPath !== '/' && (
           <Link to="/" className="text-gray-700 hover:text-black hover:underline transition">
             Home

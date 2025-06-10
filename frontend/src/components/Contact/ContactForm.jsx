@@ -28,14 +28,13 @@ const ContactForm = () => {
 
   return (
     <form ref={formRef} onSubmit={sendEmail} className="space-y-6 max-w-xl mx-auto p-4">
-      <h2 className="text-xl font-bold mb-4">Contact Us</h2>
-      
-      <p className="text-sm text-gray-600 mb-2">
+
+      <p className="text-xs italic tracking-wide drop-shadow text-gray-600 mb-2" style={{ fontFamily: 'Inter, sans-serif' }}>
         Fields marked with <span className="text-red-600">*</span> are required.
       </p>
 
       {/* Name */}
-      <label className="block text-sm font-medium mb-1">
+      <label className="block text-sm font-medium mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
         Your Name <span className="text-red-600">*</span>
       </label>
       <input
@@ -43,11 +42,12 @@ const ContactForm = () => {
         name="user_name"
         required
         placeholder="Your full name"
-        className="w-full border p-2 rounded"
+        className="text-xs w-full border p-2 rounded" 
+        style={{ fontFamily: 'Inter, sans-serif' }}
       />
 
       {/* Email */}
-      <label className="block text-sm font-medium mb-1">
+      <label className="block text-sm font-medium mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
         Email Address <span className="text-red-600">*</span>
       </label>
       <input
@@ -55,19 +55,20 @@ const ContactForm = () => {
         name="user_email"
         required
         placeholder="you@example.com"
-        className="w-full border p-2 rounded"
+        className="text-xs w-full border p-2 rounded" 
+        style={{ fontFamily: 'Inter, sans-serif' }}
       />
 
       {/* Message */}
-      <label className="block text-sm font-medium mb-1">
+      <label className="block text-sm font-medium mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
         Message <span className="text-red-600">*</span>
       </label>
       <textarea
         name="user_message"
         required
         placeholder="What would you like to tell us?"
-        className="w-full border p-2 rounded slick-scroll resize-none"
-        style={{ minHeight: '120px', maxHeight: '300px', overflowY: 'auto' }}
+        className="text-xs w-full border p-2 rounded slick-scroll resize-none" 
+        style={{ minHeight: '120px', maxHeight: '300px', overflowY: 'auto', fontFamily: 'Inter, sans-serif' }}
       />
 
       {/* Title */}
@@ -80,17 +81,17 @@ const ContactForm = () => {
       {/* Submit Button */}
       <button
         type="submit"
-        className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition"
+        className="bg-black text-base text-white py-2 px-4 rounded hover:bg-gray-800 transition" style={{ fontFamily: 'Inter, sans-serif' }}
       >
         Send Message
       </button>
 
       {/* Feedback */}
       {status === 'success' && (
-        <p className="text-green-600 mt-2">Message sent successfully!</p>
+        <p className="text-green-600 mt-2" style={{ fontFamily: 'Inter, sans-serif' }}>Message sent successfully!</p>
       )}
       {status === 'error' && (
-        <p className="text-red-600 mt-2">Failed to send message. Please try again later.</p>
+        <p className="text-red-600 mt-2" style={{ fontFamily: 'Inter, sans-serif' }}>Failed to send message. Please try again later.</p>
       )}
     </form>
   );

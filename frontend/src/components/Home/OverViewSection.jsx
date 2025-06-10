@@ -32,7 +32,7 @@ const features = [
 const OverviewSection = () => (
   <section className="w-full bg-gray-50 py-16 px-6">
     <div className="max-w-6xl mx-auto text-center mb-12">
-      <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
+      <h2 className="text-2xl md:text-4xl font-bold text-gray-800" style={{ fontFamily: 'Playfair Display, serif' }}>
         What We Offer
       </h2>
     </div>
@@ -54,12 +54,12 @@ const OverviewSection = () => (
           {icon}
 
           {/* TITLE */}
-          <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">
+          <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-2" style={{ fontFamily: 'Inter, sans-serif' }}>
             {title}
           </h3>
 
           {/* DESCRIPTION */}
-          <p className="text-base md:text-lg text-gray-600">
+          <p className="text-sm md:text-base text-gray-600" style={{ fontFamily: 'Inter, sans-serif' }}>
             {description}
           </p>
         </div>

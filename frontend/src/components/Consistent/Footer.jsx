@@ -12,7 +12,7 @@ const Footer = () => {
         </Link>
 
         {/* Nav links */}
-        <div className="flex space-x-12 text-sm uppercase tracking-wide">
+        <div className="flex space-x-12 text-sm uppercase tracking-wide" style={{ fontFamily: 'Inter, sans-serif' }}>
           <Link to="/" className="hover:underline">Home</Link>
           <Link to="/faq" className="hover:underline">FAQ</Link>
           <Link to="/contact" className="hover:underline">Contact</Link>
@@ -50,7 +50,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom text */}
-      <div className="mt-8 mb-8 md:mb-0 text-center text-xs text-gray-400">
+      <div className="mt-8 mb-8 md:mb-0 text-center text-xs text-gray-400" style={{ fontFamily: 'Playfair Display, serif' }}>
         © {new Date().getFullYear()} Lion Hill Place. All rights reserved.
       </div>
     </footer>

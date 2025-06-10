@@ -3,10 +3,10 @@ import React from 'react';
 const TrailingSection = () => {
   return (
     <section className="max-w-6xl mx-auto px-6 py-12">
-      <h2 className="text-4xl font-bold mb-4 text-center">
+      <h2 className="text-2xl md:4xl font-bold mb-4 text-center" style={{ fontFamily: 'Playfair Display, serif' }}>
         Near Lake Nakuru National Park
       </h2>
-      <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8 text-center">
+      <p className="text-sm md:text-base text-gray-700 max-w-3xl mx-auto mb-8 text-center" style={{ fontFamily: 'Inter, sans-serif' }}>
         Adventure meets relaxation just a short distance from one of Kenya's
         premier wildlife destinations. Discover flamingos, rhinos, and majestic
         views — right at your doorstep.

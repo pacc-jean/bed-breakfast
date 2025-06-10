@@ -78,12 +78,12 @@ const CampingSiteForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <p className="text-sm text-gray-600 mb-4">
+      <p className="text-xs italic text-gray-600 mb-4 tracking-wide drop-shadow" style={{ fontFamily: 'Inter, sans-serif' }}>
         Fields marked with <span className="text-red-600">*</span> are required.
       </p>
 
       {/* Name */}
-      <label className="block text-sm font-medium">
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
         Name <span className="text-red-600">*</span>
       </label>
       <input
@@ -92,11 +92,12 @@ const CampingSiteForm = ({ onSubmit }) => {
         onChange={handleChange}
         className={`w-full border p-2 rounded ${errors.name ? 'border-red-600' : ''}`}
         placeholder="Your Full Name"
+        style={{ fontFamily: 'Inter, sans-serif' }}
       />
       {errors.name && <p className="text-red-600 text-xs">{errors.name}</p>}
 
       {/* Email */}
-      <label className="block text-sm font-medium">
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
         Email <span className="text-red-600">*</span>
       </label>
       <input
@@ -106,11 +107,12 @@ const CampingSiteForm = ({ onSubmit }) => {
         onChange={handleChange}
         className={`w-full border p-2 rounded ${errors.email ? 'border-red-600' : ''}`}
         placeholder="Your Email Address"
+        style={{ fontFamily: 'Inter, sans-serif' }}
       />
       {errors.email && <p className="text-red-600 text-xs">{errors.email}</p>}
 
       {/* Phone */}
-      <label className="block text-sm font-medium">
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
         Phone Number <span className="text-red-600">*</span>
       </label>
       <input
@@ -120,13 +122,14 @@ const CampingSiteForm = ({ onSubmit }) => {
         onChange={handleChange}
         className={`w-full border p-2 rounded ${errors.phone ? 'border-red-600' : ''}`}
         placeholder="Your Phone Number"
+        style={{ fontFamily: 'Inter, sans-serif' }}
       />
       {errors.phone && <p className="text-red-600 text-xs">{errors.phone}</p>}
 
       {/* Dates */}
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-medium">
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
             From Date <span className="text-red-600">*</span>
           </label>
           <input
@@ -136,12 +139,13 @@ const CampingSiteForm = ({ onSubmit }) => {
             onChange={handleChange}
             min={todayString}
             className={`w-full border p-2 rounded ${errors.fromDate ? 'border-red-600' : ''}`}
+            style={{ fontFamily: 'Inter, sans-serif' }}
           />
           {errors.fromDate && <p className="text-red-600 text-xs">{errors.fromDate}</p>}
         </div>
 
         <div className="flex-1">
-          <label className="block text-sm font-medium">
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
             To Date <span className="text-red-600">*</span>
           </label>
           <input
@@ -151,6 +155,7 @@ const CampingSiteForm = ({ onSubmit }) => {
             onChange={handleChange}
             min={formData.fromDate || todayString}
             className={`w-full border p-2 rounded ${errors.toDate ? 'border-red-600' : ''}`}
+            style={{ fontFamily: 'Inter, sans-serif' }}
           />
           {errors.toDate && <p className="text-red-600 text-xs">{errors.toDate}</p>}
         </div>
@@ -158,7 +163,7 @@ const CampingSiteForm = ({ onSubmit }) => {
 
       {/* Nights info */}
       {nights > 0 && (
-        <div className="text-sm text-blue-600">
+        <div className="text-sm text-blue-600" style={{ fontFamily: 'Inter, sans-serif' }}>
           You've booked a {nights}-night camping adventure.
         </div>
       )}
@@ -166,7 +171,9 @@ const CampingSiteForm = ({ onSubmit }) => {
       {/* Guests */}
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-medium">Adults</label>
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+            Adults
+          </label>
           <input
             type="number"
             name="adults"
@@ -174,11 +181,14 @@ const CampingSiteForm = ({ onSubmit }) => {
             value={formData.adults}
             onChange={handleChange}
             className={`w-full border p-2 rounded ${errors.guests ? 'border-red-600' : ''}`}
+            style={{ fontFamily: 'Inter, sans-serif' }}
           />
         </div>
 
         <div className="flex-1">
-          <label className="block text-sm font-medium">Children</label>
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+            Children
+          </label>
           <input
             type="number"
             name="children"
@@ -186,25 +196,34 @@ const CampingSiteForm = ({ onSubmit }) => {
             value={formData.children}
             onChange={handleChange}
             className={`w-full border p-2 rounded ${errors.guests ? 'border-red-600' : ''}`}
+            style={{ fontFamily: 'Inter, sans-serif' }}
           />
         </div>
       </div>
       {errors.guests && <p className="text-red-600 text-xs">{errors.guests}</p>}
 
       {/* Notes */}
-      <label className="block text-sm font-medium">Additional Notes</label>
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+        Additional Notes
+      </label>
       <textarea
         name="notes"
         value={formData.notes}
         onChange={handleChange}
         placeholder="Anything we should know?"
         className="w-full border p-2 rounded slick-scroll resize-none"
-        style={{ minHeight: '120px', maxHeight: '300px', overflowY: 'auto' }}
+        style={{
+          minHeight: '120px',
+          maxHeight: '300px',
+          overflowY: 'auto',
+          fontFamily: 'Inter, sans-serif',
+        }}
       />
 
       <button
         type="submit"
         className="w-full bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition"
+        style={{ fontFamily: 'Inter, sans-serif' }}
       >
         Review Booking
       </button>
