@@ -164,7 +164,7 @@ const CampingSiteForm = ({ onSubmit }) => {
       {/* Nights info */}
       {nights > 0 && (
         <div className="text-sm text-blue-600" style={{ fontFamily: 'Inter, sans-serif' }}>
-          You've booked a {nights}-night camping adventure.
+          You've selected a {nights}-night camping adventure.
         </div>
       )}
 

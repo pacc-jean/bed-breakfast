@@ -77,8 +77,8 @@ const BnbStayForm = ({ onSubmit }) => {
       </p>
 
       {/* Name */}
-      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Name 
-        <span className="text-red-600">*</span>
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+        Name <span className="text-red-600">*</span>
       </label>
       <input
         name="name"
@@ -92,8 +92,8 @@ const BnbStayForm = ({ onSubmit }) => {
       {errors.name && <p className="text-red-600 text-xs">{errors.name}</p>}
 
       {/* Email */}
-      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Email 
-        <span className="text-red-600">*</span>
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+        Email <span className="text-red-600">*</span>
       </label>
       <input
         name="email"
@@ -107,8 +107,8 @@ const BnbStayForm = ({ onSubmit }) => {
       {errors.email && <p className="text-red-600 text-xs">{errors.email}</p>}
 
       {/* Phone */}
-      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Phone Number 
-        <span className="text-red-600">*</span>
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+        Phone Number <span className="text-red-600">*</span>
       </label>
       <input
         name="phone"
@@ -124,8 +124,8 @@ const BnbStayForm = ({ onSubmit }) => {
       {/* Check-in & Check-out */}
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Check-in 
-            <span className="text-red-600">*</span>
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+            Check-in <span className="text-red-600">*</span>
           </label>
           <input
             type="date"
@@ -140,8 +140,8 @@ const BnbStayForm = ({ onSubmit }) => {
         </div>
 
         <div className="flex-1">
-          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Check-out 
-            <span className="text-red-600">*</span>
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+            Check-out <span className="text-red-600">*</span>
           </label>
           <input
             type="date"
@@ -166,7 +166,9 @@ const BnbStayForm = ({ onSubmit }) => {
       {/* Guests */}
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Adults</label>
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+            Adults
+          </label>
           <input
             type="number"
             name="adults"
@@ -179,7 +181,9 @@ const BnbStayForm = ({ onSubmit }) => {
         </div>
 
         <div className="flex-1">
-          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Children</label>
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+            Children
+          </label>
           <input
             type="number"
             name="children"
@@ -194,7 +198,9 @@ const BnbStayForm = ({ onSubmit }) => {
       {errors.guests && <p className="text-red-600 text-xs">{errors.guests}</p>}
 
       {/* Notes */}
-      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Additional Notes</label>
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>
+        Additional Notes
+      </label>
       <textarea
         name="notes"
         value={formData.notes}
