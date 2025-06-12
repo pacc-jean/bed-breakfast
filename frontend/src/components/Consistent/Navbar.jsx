@@ -27,9 +27,9 @@ const Navbar = () => {
   return (
     <>
       {/* Mobile Banner Logo */}
-      <div className={`flex md:hidden fixed top-0 left-0 w-full h-[150px] z-50 px-4 items-center justify-center transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
+      <div className={`flex md:hidden fixed top-0 left-0 w-full h-[150px] z-50 rounded-b-2xl px-4 items-center justify-center transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
         <img
-          src="/banner-logo.png"
+          src="/banner-logo.2.1.png"
           alt="Lion Hill Banner Logo"
           className="h-[80px] object-contain"
         />
@@ -37,7 +37,7 @@ const Navbar = () => {
 
       {/* Desktop Navbar */}
       <nav
-        className={`hidden md:flex fixed top-0 left-0 w-full h-[150px] z-50 px-8 transition-all duration-300 transform ${
+        className={`hidden md:flex fixed top-0 left-0 w-full h-[150px] rounded-b-2xl z-50 px-8 transition-all duration-300 transform ${
           isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
         } items-center justify-between`}
       >
