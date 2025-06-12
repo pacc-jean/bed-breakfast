@@ -24,6 +24,7 @@ const Navbar = () => {
           src="/banner-logo.2.1.png"
           alt="Lion Hill Banner Logo"
           className="h-[100px] object-contain"
+          loading='eager'
         />
       </div>
 
@@ -38,6 +39,7 @@ const Navbar = () => {
             src="/banner-logo.2.1.png"
             alt="Lion Hill Logo"
             className="h-[150px] max-h-[150px] object-contain transition-all duration-300"
+            loading='eager'
           />
         </div>
 
