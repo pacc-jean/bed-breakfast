@@ -30,18 +30,29 @@ const BookingsPage = () => {
 
   return (
     <div className="min-h-screen pt-[150px] px-4">
-      <h1 className="text-2xl md:text-4xl font-bold text-center mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Book Your Stay</h1>
-      <p className="text-xs md:text-sm text-center text-gray-600 mb-8" style={{ fontFamily: 'Inter, sans-serif' }}>
+      <h1
+        className="text-2xl md:text-4xl font-bold text-center mb-4"
+        style={{ fontFamily: 'Playfair Display, serif' }}
+      >
+        Book Your Stay
+      </h1>
+      <p
+        className="text-xs md:text-sm text-center text-gray-600 mb-8"
+        style={{ fontFamily: 'Inter, sans-serif' }}
+      >
         Choose from our B&B rooms, camping site, or event space.
       </p>
 
       {/* Booking type buttons ALWAYS visible */}
-      <div className="flex flex-wrap justify-center gap-4 mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>
+      <div
+        className="flex flex-wrap justify-center gap-2 mb-6"
+        style={{ fontFamily: 'Inter, sans-serif' }}
+      >
         {bookingOptions.map((type) => (
           <button
             key={type}
             onClick={() => handleTypeSelect(type)}
-            className={`px-4 py-2 rounded-full transition ${
+            className={`text-sm sm:text-base px-3 sm:px-4 py-1.5 sm:py-2 rounded-full transition ${
               bookingType === type
                 ? 'bg-black text-white'
                 : 'bg-gray-200 hover:bg-gray-300 text-black'
