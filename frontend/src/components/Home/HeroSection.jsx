@@ -96,7 +96,7 @@ const HeroSection = () => {
       {/* LEFT ARROW */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 text-white text-4xl sm:text-6xl pointer-events-auto select-none z-10"
+        className="absolute top-1/2 md:top-[85%] left-2 sm:left-4 transform -translate-y-1/2 text-white text-4xl sm:text-6xl pointer-events-auto select-none z-10"
         aria-label="Previous Slide"
         style={{ background: 'none', border: 'none', padding: 0 }}
       >
@@ -106,7 +106,7 @@ const HeroSection = () => {
       {/* RIGHT ARROW */}
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 text-white text-4xl sm:text-6xl pointer-events-auto select-none z-10"
+        className="absolute top-1/2 md:top-[85%] right-2 sm:right-4 transform -translate-y-1/2 text-white text-4xl sm:text-6xl pointer-events-auto select-none z-10"
         aria-label="Next Slide"
         style={{ background: 'none', border: 'none', padding: 0 }}
       >

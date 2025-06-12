@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
-          <img src="/lionhill.01.png" alt="Lion Hill Logo" className="h-[200px] object-contain" />
+          <img src="/lionhill.1.0.png" alt="Lion Hill Logo" className="h-[200px] object-contain" />
         </Link>
 
         {/* Nav links */}
