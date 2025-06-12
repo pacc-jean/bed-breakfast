@@ -77,7 +77,7 @@ const BnbStayForm = ({ onSubmit }) => {
       </p>
 
       {/* Name */}
-      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Name
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Name 
         <span className="text-red-600">*</span>
       </label>
       <input
@@ -92,7 +92,7 @@ const BnbStayForm = ({ onSubmit }) => {
       {errors.name && <p className="text-red-600 text-xs">{errors.name}</p>}
 
       {/* Email */}
-      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Email
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Email 
         <span className="text-red-600">*</span>
       </label>
       <input
@@ -107,7 +107,7 @@ const BnbStayForm = ({ onSubmit }) => {
       {errors.email && <p className="text-red-600 text-xs">{errors.email}</p>}
 
       {/* Phone */}
-      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Phone Number
+      <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Phone Number 
         <span className="text-red-600">*</span>
       </label>
       <input
@@ -124,7 +124,7 @@ const BnbStayForm = ({ onSubmit }) => {
       {/* Check-in & Check-out */}
       <div className="flex gap-4">
         <div className="flex-1">
-          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Check-in
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Check-in 
             <span className="text-red-600">*</span>
           </label>
           <input
@@ -140,7 +140,7 @@ const BnbStayForm = ({ onSubmit }) => {
         </div>
 
         <div className="flex-1">
-          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Check-out
+          <label className="block text-sm font-medium" style={{ fontFamily: 'Playfair Display, serif' }}>Check-out 
             <span className="text-red-600">*</span>
           </label>
           <input
