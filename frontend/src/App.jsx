@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import ScrollToTop from './ScrollToTop';
 import Navbar from './components/Consistent/Navbar';
 import MobileBottomNav from './components/Consistent/MobileBottom Nav';
 import Footer from './components/Consistent/Footer';
@@ -13,6 +14,8 @@ const App = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
       <MobileBottomNav />
+      {/* ScrollToTop component to reset scroll position on route change */}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/book" element={<BookingsPage />} />
