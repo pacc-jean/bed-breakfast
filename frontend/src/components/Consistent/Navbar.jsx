@@ -14,7 +14,7 @@ const Navbar = () => {
       const currentScrollY = window.scrollY;
       const isScrollingDown = currentScrollY > lastScrollY;
 
-      setIsScrolled(currentScrollY > 50);
+      setIsScrolled(currentScrollY > 20);
 
       if (window.innerWidth < 768) {
         setIsVisible(!(isScrollingDown && currentScrollY > 50));
