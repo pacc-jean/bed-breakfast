@@ -5,7 +5,7 @@ import BookingSummary from '../components/Bookings/BookingSummary';
 const bookingOptions = ['B&B Stay', 'Camping Site', 'Event Space'];
 
 const BookingsPage = () => {
-  const [bookingType, setBookingType] = useState('');
+  const [bookingType, setBookingType] = useState('B&B Stay'); // Default to B&B Stay
   const [formData, setFormData] = useState(null);
   const [step, setStep] = useState('form'); // Always either form or summary now
 
