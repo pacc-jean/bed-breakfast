@@ -38,7 +38,7 @@ const FAQ = () => {
   }, []);
 
   return (
-    <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-[140px] pb-20">
+    <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-[100px] md:pt-[150px] pb-20">
       <h1 className="text-2xl sm:text-4xl font-extrabold mb-4 text-center" style={{ fontFamily: 'Playfair Display, serif' }}>Frequently Asked Questions</h1>
       <p className="text-xs md:text-sm text-center text-gray-600 mb-10" style={{ fontFamily: 'Inter, sans-serif' }}>
         Got a question? We’ve got answers. If you can’t find what you’re looking for, feel free to{' '}

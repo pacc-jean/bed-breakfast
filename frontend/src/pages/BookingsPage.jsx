@@ -29,7 +29,7 @@ const BookingsPage = () => {
   };
 
   return (
-    <div className="min-h-screen pt-[150px] px-4">
+    <div className="min-h-screen pt-[100px] md:pt-[150px] px-4">
       <h1
         className="text-2xl md:text-4xl font-bold text-center mb-4"
         style={{ fontFamily: 'Playfair Display, serif' }}
