@@ -26,7 +26,6 @@ const generateEmailHTML = (booking, forGuest = true) => {
 
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee;">
-      <img src="https://lion-hill-place-frontend.onrender.com/banner-logo.2.1.png" alt="Lion Hill Logo" style="max-width: 200px; margin-bottom: 20px;" />
       <h2 style="color: #333;">${forGuest ? `Thanks for your booking, ${booking.name}!` : 'New Booking Received'}</h2>
       <p>Booking Reference: <strong>${booking.reference}</strong></p>
       ${isStay ? `
@@ -52,7 +51,7 @@ const generateEmailHTML = (booking, forGuest = true) => {
       ${forGuest ? `<p style="margin-top: 20px;">We can't wait to host you!</p>` : ''}
       ${socialsHTML}
       <hr style="margin-top: 30px;" />
-      <p style="font-size: 12px; color: #999;">Lion Hill Place B&B - All rights reserved.</p>
+      <p style="font-size: 12px; color: #999;">© ${new Date().getFullYear()} Lion Hill Place. All rights reserved.</p>
     </div>
   `;
 };
