@@ -8,10 +8,13 @@ import {
 
 const BookingSummary = ({ booking, onEdit, onCancel }) => {
   const [confirmed, setConfirmed] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); // 💡 NEW STATE
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // ✅ LOCAL COPY of booking to safely modify
+  const [localBooking, setLocalBooking] = useState(booking);
 
   const handleConfirm = async () => {
-    if (isSubmitting) return; // Prevent spam-clicks
+    if (isSubmitting) return;
     setIsSubmitting(true);
 
     try {
@@ -22,13 +25,15 @@ const BookingSummary = ({ booking, onEdit, onCancel }) => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(booking),
+          body: JSON.stringify(localBooking),
         }
       );
 
       const data = await response.json();
 
       if (response.ok) {
+        // ✅ Update booking with reference from backend
+        setLocalBooking(prev => ({ ...prev, reference: data.reference }));
         setConfirmed(true);
       } else {
         console.error('Booking failed:', data.error);
@@ -50,15 +55,17 @@ const BookingSummary = ({ booking, onEdit, onCancel }) => {
           className="text-xl md:text-2xl font-extrabold text-green-700 mb-2"
           style={{ fontFamily: 'Playfair Display, serif' }}
         >
-          Thank you, {booking.name}!
+          Thank you, {localBooking.name}!
         </h2>
         <p
           className="text-gray-700 leading-relaxed"
           style={{ fontFamily: 'Inter, sans-serif' }}
         >
-          Your <strong>{booking.bookingType}</strong> booking has been confirmed.
+          Your <strong>{localBooking.bookingType}</strong> booking has been confirmed.
           <br />
           A confirmation with your booking receipt has been sent to your email.
+          <br />
+          <strong>Reference:</strong> {localBooking.reference}
           <br />
           <a
             href="/contact"
@@ -88,53 +95,53 @@ const BookingSummary = ({ booking, onEdit, onCancel }) => {
         <div className="flex items-center gap-2">
           <UserIcon className="h-5 w-5 text-gray-500" />
           <span>
-            <strong>Name:</strong> {booking.name}
+            <strong>Name:</strong> {localBooking.name}
           </span>
         </div>
         <div className="flex items-center gap-2">
           <UserIcon className="h-5 w-5 text-gray-500" />
           <span>
-            <strong>Email:</strong> {booking.email}
+            <strong>Email:</strong> {localBooking.email}
           </span>
         </div>
         <div className="flex items-center gap-2">
           <UserIcon className="h-5 w-5 text-gray-500" />
           <span>
-            <strong>Phone:</strong> {booking.phone}
+            <strong>Phone:</strong> {localBooking.phone}
           </span>
         </div>
         <div className="flex items-center gap-2">
           <CalendarIcon className="h-5 w-5 text-gray-500" />
           <span>
-            <strong>Booking Type:</strong> {booking.bookingType}
+            <strong>Booking Type:</strong> {localBooking.bookingType}
           </span>
         </div>
 
-        {booking.bookingType === 'B&B Stay' || booking.bookingType === 'Camping Site' ? (
+        {localBooking.bookingType === 'B&B Stay' || localBooking.bookingType === 'Camping Site' ? (
           <>
             <div className="flex items-center gap-2">
               <CalendarIcon className="h-5 w-5 text-gray-500" />
               <span>
                 <strong>
-                  {booking.bookingType === 'B&B Stay' ? 'Check-in' : 'From'}:
+                  {localBooking.bookingType === 'B&B Stay' ? 'Check-in' : 'From'}:
                 </strong>{' '}
-                {booking.checkIn || booking.fromDate}
+                {localBooking.checkIn || localBooking.fromDate}
               </span>
             </div>
             <div className="flex items-center gap-2">
               <CalendarIcon className="h-5 w-5 text-gray-500" />
               <span>
                 <strong>
-                  {booking.bookingType === 'B&B Stay' ? 'Check-out' : 'To'}:
+                  {localBooking.bookingType === 'B&B Stay' ? 'Check-out' : 'To'}:
                 </strong>{' '}
-                {booking.checkOut || booking.toDate}
+                {localBooking.checkOut || localBooking.toDate}
               </span>
             </div>
             <p>
-              <strong>Adults:</strong> {booking.adults}
+              <strong>Adults:</strong> {localBooking.adults}
             </p>
             <p>
-              <strong>Children:</strong> {booking.children}
+              <strong>Children:</strong> {localBooking.children}
             </p>
           </>
         ) : (
@@ -142,30 +149,30 @@ const BookingSummary = ({ booking, onEdit, onCancel }) => {
             <div className="flex items-center gap-2">
               <CalendarIcon className="h-5 w-5 text-gray-500" />
               <span>
-                <strong>Event Date:</strong> {booking.eventDate}
+                <strong>Event Date:</strong> {localBooking.eventDate}
               </span>
             </div>
             <div className="flex items-center gap-2">
               <ClockIcon className="h-5 w-5 text-gray-500" />
               <span>
-                <strong>Start Time:</strong> {booking.startTime}
+                <strong>Start Time:</strong> {localBooking.startTime}
               </span>
             </div>
             <div className="flex items-center gap-2">
               <ClockIcon className="h-5 w-5 text-gray-500" />
               <span>
-                <strong>End Time:</strong> {booking.endTime}
+                <strong>End Time:</strong> {localBooking.endTime}
               </span>
             </div>
             <p>
-              <strong>Event Type:</strong> {booking.eventType}
+              <strong>Event Type:</strong> {localBooking.eventType}
             </p>
           </>
         )}
 
-        {booking.notes && (
+        {localBooking.notes && (
           <p>
-            <strong>Notes:</strong> {booking.notes}
+            <strong>Notes:</strong> {localBooking.notes}
           </p>
         )}
       </div>
