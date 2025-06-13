@@ -49,6 +49,7 @@ const generateEmailHTML = (booking, forGuest = true) => {
       `}
       <p><a href="${GOOGLE_MAPS_URL}" target="_blank" style="color: #007BFF;">📍 View Location on Google Maps</a></p>
       ${forGuest ? `<p style="margin-top: 20px;">We can't wait to host you!</p>` : ''}
+      ${forGuest ? `<p style="margin-top: 20px;">For any questions about your booking, feel free to reply to this email or call our help desk at <strong>+254 722 774029</strong>.</p>` : ''}
       ${socialsHTML}
       <hr style="margin-top: 30px;" />
       <p style="font-size: 12px; color: #999;">© ${new Date().getFullYear()} Lion Hill Place. All rights reserved.</p>
