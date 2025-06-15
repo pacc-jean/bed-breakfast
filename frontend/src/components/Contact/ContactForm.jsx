@@ -27,7 +27,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form ref={formRef} onSubmit={sendEmail} className="space-y-6 max-w-xl mx-auto p-4">
+    <form ref={formRef} onSubmit={sendEmail} className="space-y-6 max-w-7xl mx-auto p-4">
 
       <p className="text-xs italic tracking-wide drop-shadow text-gray-600 mb-2" style={{ fontFamily: 'Inter, sans-serif' }}>
         Fields marked with <span className="text-red-600">*</span> are required.
