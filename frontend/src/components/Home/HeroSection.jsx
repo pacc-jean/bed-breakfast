@@ -47,7 +47,7 @@ const HeroSection = () => {
   return (
     <section
       {...handlers}
-      className="relative w-full h-screen max-h-[700px] overflow-hidden"
+      className="relative w-full h-screen max-h-[720px] overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -74,7 +74,7 @@ const HeroSection = () => {
       </div>
 
       {/* OVERLAY, BUTTON & TEXT */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 text-white select-none pointer-events-none flex flex-col justify-end items-center px-6 pb-12 text-center">
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/70 via-black/40 to-transparent text-white select-none pointer-events-none flex flex-col justify-end items-center px-6 pb-12 text-center z-10">
         <h1 className="text-2xl md:text-3xl font-extrabold leading-tight max-w-4xl" style={{ fontFamily: 'Playfair Display, serif' }}>
           Welcome To Lion Hill Place
           <br />

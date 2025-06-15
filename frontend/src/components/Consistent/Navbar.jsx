@@ -17,7 +17,7 @@ const Navbar = () => {
       {/* Mobile Navbar */}
       <div
         className={`flex md:hidden fixed top-0 left-0 w-full h-[100px] z-50 rounded-b-2xl px-4 items-center justify-center transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+          isScrolled ? 'bg-gradient-to-b from-gray-800/80 to-transparent shadow-md' : 'bg-transparent'
         }`}
       >
         <img
@@ -31,7 +31,7 @@ const Navbar = () => {
       {/* Desktop Navbar */}
       <nav
         className={`hidden md:flex fixed top-0 left-0 w-full h-[150px] z-50 px-8 items-center justify-between rounded-b-2xl transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+          isScrolled ? 'bg-gradient-to-b from-gray-800/80 to-transparent shadow-md' : 'bg-transparent'
         }`}
       >
         <div className="absolute left-1/2 transform -translate-x-1/2 h-full flex items-center justify-center">
@@ -44,7 +44,7 @@ const Navbar = () => {
         </div>
 
         {/* 
-        Uncomment below if you want nav links later
+        Nav links later
         <div className="flex items-center space-x-6 text-sm font-medium ml-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
           <Link to="/" className="text-gray-700 hover:text-black hover:underline transition">Home</Link>
           <Link to="/faq" className="text-gray-700 hover:text-black hover:underline transition">FAQ</Link>

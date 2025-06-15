@@ -30,38 +30,49 @@ const features = [
 ];
 
 const OverviewSection = () => (
-  <section className="w-full bg-gray-200 py-16 px-4">
+  <section className="w-full bg-gray-100 py-16 px-4">
     <div className="max-w-6xl mx-auto text-center mb-12">
-      <h2 className="text-2xl md:text-4xl font-bold text-black" style={{ fontFamily: 'Playfair Display, serif' }}>
+      <h2
+        className="text-2xl md:text-4xl font-bold text-black"
+        style={{ fontFamily: 'Playfair Display, serif' }}
+      >
         What We Offer
       </h2>
     </div>
 
-    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {features.map(({ icon, image, title, description }) => (
         <div
           key={title}
-          className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center transition hover:shadow-2xl"
+          className="relative rounded-3xl overflow-hidden shadow-xl group hover:shadow-2xl transition duration-300 h-[400px] flex flex-col justify-end"
         >
-          {/* IMAGE */}
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-48 object-cover rounded-xl mb-4"
+          {/* Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${image})` }}
           />
-          
-          {/* ICON */}
-          {icon}
 
-          {/* TITLE */}
-          <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-2" style={{ fontFamily: 'Inter, sans-serif' }}>
-            {title}
-          </h3>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent z-10" />
 
-          {/* DESCRIPTION */}
-          <p className="text-sm md:text-base text-gray-600" style={{ fontFamily: 'Inter, sans-serif' }}>
-            {description}
-          </p>
+          {/* Card Content */}
+          <div className="relative z-20 p-6 text-center text-white flex flex-col items-center">
+            {icon}
+
+            <h3
+              className="text-base md:text-lg font-bold mb-2"
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              {title}
+            </h3>
+
+            <p
+              className="text-xs md:text-sm text-white/90"
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              {description}
+            </p>
+          </div>
         </div>
       ))}
     </div>
