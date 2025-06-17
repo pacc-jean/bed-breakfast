@@ -10,7 +10,7 @@ const auth = new google.auth.GoogleAuth({
 });
 
 const SHEET_ID = '1fGkIAn_mK2AnnFShYhOnbEL5WfqTkuXyZoFhJIMcb9M';
-const SHEET_NAME = 'Bookings';
+const SHEET_NAME = 'Sheet1';
 
 export const logBookingToSheet = async (booking) => {
   const client = await auth.getClient();
