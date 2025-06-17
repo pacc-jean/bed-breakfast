@@ -21,11 +21,11 @@ export const logBookingToSheet = async (booking) => {
     booking.email || '',
     booking.phone || '',
     booking.bookingType || '',
-    booking.checkIn || '',
-    booking.checkOut || '',
-    booking.fromDate || '',
-    booking.toDate || '',
-    booking.eventDate || '',
+    booking.checkIn ? `"${booking.checkIn}"` : '',
+    booking.checkOut ? `"${booking.checkOut}"` : '',
+    booking.fromDate ? `"${booking.fromDate}"` : '',
+    booking.toDate ? `"${booking.toDate}"` : '',
+    booking.eventDate ? `"${booking.eventDate}"` : '',
     booking.startTime || '',
     booking.endTime || '',
     booking.eventType || '',
@@ -33,7 +33,7 @@ export const logBookingToSheet = async (booking) => {
     booking.children || '',
     booking.notes || '',
     booking.reference || '',
-    new Date().toISOString(), // Optional: add timestamp
+    new Date().toISOString(), // Timestamp
 ];
 
 
