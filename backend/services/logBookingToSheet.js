@@ -17,21 +17,25 @@ export const logBookingToSheet = async (booking) => {
   const sheets = google.sheets({ version: 'v4', auth: client });
 
   const row = [
-    booking.reference,
-    booking.name,
-    booking.email,
-    booking.phone,
-    booking.bookingType,
-    booking.checkIn || booking.fromDate || '',
-    booking.checkOut || booking.toDate || '',
-    booking.adults || '',
-    booking.children || '',
+    booking.name || '',
+    booking.email || '',
+    booking.phone || '',
+    booking.bookingType || '',
+    booking.checkIn || '',
+    booking.checkOut || '',
+    booking.fromDate || '',
+    booking.toDate || '',
     booking.eventDate || '',
     booking.startTime || '',
     booking.endTime || '',
     booking.eventType || '',
+    booking.adults || '',
+    booking.children || '',
     booking.notes || '',
-  ];
+    booking.reference || '',
+    new Date().toISOString(), // Optional: add timestamp
+];
+
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: SHEET_ID,
