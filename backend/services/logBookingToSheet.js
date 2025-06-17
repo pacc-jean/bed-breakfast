@@ -35,7 +35,7 @@ export const logBookingToSheet = async (booking) => {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: SHEET_ID,
-    range: SHEET_NAME,
+    range: `${SHEET_NAME}!A2`,
     valueInputOption: 'USER_ENTERED',
     insertDataOption: 'INSERT_ROWS',
     requestBody: {
