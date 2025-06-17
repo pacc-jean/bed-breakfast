@@ -1,16 +1,11 @@
 import { google } from 'googleapis';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import fs from 'fs';
 
-// Resolve the key file path
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const KEYFILEPATH = path.join(__dirname, '../googleServiceAccountKey.json');
+// Load credentials from env variable
+const keyFileBuffer = Buffer.from(process.env.GOOGLE_SERVICE_ACCOUNT_KEY, 'base64');
+const credentials = JSON.parse(keyFileBuffer.toString());
 
-// Load client secrets
 const auth = new google.auth.GoogleAuth({
-  keyFile: KEYFILEPATH,
+  credentials,
   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
