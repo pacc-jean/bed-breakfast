@@ -12,7 +12,13 @@ export const confirmBooking = async (req, res) => {
     console.log('New booking received:', booking);
 
     await sendBookingEmails(booking);
-    await logBookingToSheet(booking);
+
+    // Log it and move on
+    try {
+      await logBookingToSheet(booking);
+    } catch (logErr) {
+      console.error('Failed to log booking to Google Sheets:', logErr.message);
+    }
 
     res.status(200).json({ message: 'Booking confirmed and emails sent!', reference: booking.reference });
   } catch (err) {
