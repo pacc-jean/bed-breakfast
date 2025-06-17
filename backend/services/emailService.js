@@ -29,7 +29,7 @@ const generateEmailHTML = (booking, forGuest = true) => {
       <h2 style="color: #333;">${forGuest ? `Thanks for your booking, ${booking.name}!` : 'New Booking Received'}</h2>
       <p>Booking Reference: <strong>${booking.reference}</strong></p>
       ${isStay ? `
-        <p>${forGuest ? `We've locked in your <strong>${booking.bookingType}</strong> stay.` : ''}</p>
+        <p>${forGuest ? `We've locked in your <strong>${booking.bookingType}</strong> reservation.` : ''}</p>
         <ul>
           <li><strong>Check-In:</strong> ${booking.checkIn || booking.fromDate || 'N/A'}</li>
           <li><strong>Check-Out:</strong> ${booking.checkOut || booking.toDate || 'N/A'}</li>
@@ -49,7 +49,7 @@ const generateEmailHTML = (booking, forGuest = true) => {
       `}
       <p><a href="${GOOGLE_MAPS_URL}" target="_blank" style="color: #007BFF;">📍 View Location on Google Maps</a></p>
       ${forGuest ? `<p style="margin-top: 20px;">We can't wait to host you!</p>` : ''}
-      ${forGuest ? `<p style="margin-top: 20px;">For any questions about your booking, feel free to reply to this email or call our help desk at <strong>+254 722 774029</strong>.</p>` : ''}
+      ${forGuest ? `<p style="margin-top: 20px;">For any questions about your booking or cancellation, feel free to reply to this email or call our help desk at <strong>+254 722 774029</strong>.</p>` : ''}
       ${socialsHTML}
       <hr style="margin-top: 30px;" />
       <p style="font-size: 12px; color: #999;">© ${new Date().getFullYear()} Lion Hill Place. All rights reserved.</p>
