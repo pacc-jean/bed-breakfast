@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Consistent/Navbar';
+// import Navbar from './components/Consistent/Navbar';
 import DesktopSideNav from './components/Consistent/DesktopSideNav';
 import MobileBottomNav from './components/Consistent/MobileBottom Nav';
 import ScrollToTop from './ScrollToTop';
@@ -13,7 +13,7 @@ import Contact from './pages/Contact';
 const App = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
+      {/* <Navbar /> */}
       <DesktopSideNav />
       <MobileBottomNav />
       <ScrollToTop />

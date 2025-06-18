@@ -74,7 +74,7 @@ const HeroSection = () => {
       </div>
 
       {/* OVERLAY, BUTTON & TEXT */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/70 via-black/40 to-transparent text-white select-none pointer-events-none flex flex-col justify-end items-center px-6 pb-12 text-center z-10">
+      <div className="absolute top-0 left-0 w-full h-full text-white select-none pointer-events-none flex flex-col justify-end items-center px-6 pb-12 text-center z-10">
         <h1 className="text-2xl md:text-3xl font-extrabold leading-tight max-w-4xl" style={{ fontFamily: 'Playfair Display, serif' }}>
           Welcome To Lion Hill Place
           <br />
