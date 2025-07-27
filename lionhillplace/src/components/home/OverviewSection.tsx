@@ -5,7 +5,7 @@ import eventImg from "../../assets/event.jpg";
 
 function OverviewSection() {
   return (
-    <section className="py-24 px-6 bg-gray-100">
+    <section className="relative -mt-10 py-24 px-6 bg-gray-100 rounded-t-4xl">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-12">
         {/* Left Text */}
         <div className="flex-1 mt-10 pr-6">

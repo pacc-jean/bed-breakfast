@@ -21,12 +21,13 @@ function ContactForm() {
   return (
     <section className="w-full max-w-4xl mx-auto px-4">
       <h2 className="text-3xl font-serif font-semibold mb-6">Contact Us</h2>
+      <p className="text-sm mb-4 text-blue-600 italic">field marked<span className="text-red-600"> * </span>are required</p>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* First + Last Name */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="flex flex-col">
             <label htmlFor="firstName" className="text-sm font-medium mb-1">
-              First Name*
+              First Name<span className="text-red-600"> * </span>
             </label>
             <input
               required
@@ -40,7 +41,7 @@ function ContactForm() {
           </div>
           <div className="flex flex-col">
             <label htmlFor="lastName" className="text-sm font-medium mb-1">
-              Last Name*
+              Last Name<span className="text-red-600"> * </span>
             </label>
             <input
               required
@@ -58,7 +59,7 @@ function ContactForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="flex flex-col">
             <label htmlFor="email" className="text-sm font-medium mb-1">
-              Email*
+              Email<span className="text-red-600"> * </span>
             </label>
             <input
               required
@@ -72,7 +73,7 @@ function ContactForm() {
           </div>
           <div className="flex flex-col">
             <label htmlFor="phone" className="text-sm font-medium mb-1">
-              Phone Number*
+              Phone Number<span className="text-red-600"> * </span>
             </label>
             <input
               required
@@ -90,7 +91,7 @@ function ContactForm() {
         {/* Message */}
         <div className="flex flex-col">
           <label htmlFor="message" className="text-sm font-medium mb-1">
-            Message*
+            Message<span className="text-red-600"> * </span>
           </label>
           <textarea
             required

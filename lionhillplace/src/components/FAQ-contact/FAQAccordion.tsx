@@ -82,12 +82,12 @@ function FAQAccordion() {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-serif text-black">Frequently asked questions</h2>
+      <h2 className="text-3xl font-serif text-black text-center font-semibold">Frequently asked questions</h2>
 
       {/* Filter Dropdown */}
       <div className="relative inline-block">
         <select
-            className="border-b border-black bg-transparent text-black py-1 pr-6 pl-2 outline-none appearance-none cursor-pointer"
+            className="border-b border-blue-500 bg-transparent text-blue-600 text-xl text-center py-1 pr-6 pl-2 outline-none appearance-none cursor-pointer"
             value={selectedType}
             onChange={(e) => {
             setSelectedType(e.target.value as keyof typeof faqData);
@@ -103,7 +103,7 @@ function FAQAccordion() {
 
         {/* Chevron Icon */}
         <svg
-            className="absolute right-1 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none text-black"
+            className="absolute right-1 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none text-blue-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
