@@ -30,12 +30,12 @@ function TrailSection() {
             <h3 className="text-2xl font-semibold mb-6">Opening Hours</h3>
             <div className="border-t border-b border-black divide-y divide-gray-black text-lg">
               {[
-                ["Mon", "9:00AM - 5:00PM"],
-                ["Tue", "9:00AM - 5:00PM"],
-                ["Wed", "9:00AM - 5:00PM"],
-                ["Thu", "9:00AM - 5:00PM"],
-                ["Fri", "9:00AM - 5:00PM"],
-                ["Sat", "9:00AM - 3:00PM"],
+                ["Monday", "9:00am - 5:00pm"],
+                ["Tuesday", "9:00am - 5:00pm"],
+                ["Wednesday", "9:00am - 5:00pm"],
+                ["Thursday", "9:00am - 5:00pm"],
+                ["Friday", "9:00am - 5:00pm"],
+                ["Saturday", "9:00am - 3:00pm"],
               ].map(([day, time]) => (
                 <div key={day} className="flex justify-between py-4 px-1">
                   <span>{day}</span>

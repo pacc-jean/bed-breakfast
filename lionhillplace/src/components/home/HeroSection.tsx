@@ -12,7 +12,7 @@ function HeroSection() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0" />
+      <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
@@ -25,7 +25,7 @@ function HeroSection() {
         </p>
         <NavLink
           to="/book"
-          className="bg-white text-black font-semibold py-3 px-6 rounded-lg text-lg shadow-md hover:bg-black hover:text-white transition"
+          className="bg-white text-black font-semibold py-2 px-4 rounded-lg text-lg shadow-md hover:bg-black hover:text-white transition"
         >
           Book Now
         </NavLink>
