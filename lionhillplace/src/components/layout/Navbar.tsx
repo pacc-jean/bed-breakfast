@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 
 const navItems = [
   { label: "Home", to: "/" },
-  { label: "FAQ", to: "/faq" },
-  { label: "Contact", to: "/contact" },
+  { label: "Contact & FAQ", to: "/faq" },
+  { label: "Explore", to: "/explore" },
 ];
 
 function Navbar() {

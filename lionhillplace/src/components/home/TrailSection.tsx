@@ -25,7 +25,7 @@ function TrailSection() {
             views — right at your doorstep.
           </p>
 
-          {/* Opening Hours with accurate dividers */}
+          {/* Opening Hours */}
           <div className="mb-8">
             <h3 className="text-2xl font-semibold mb-6">Opening Hours</h3>
             <div className="border-t border-b border-black divide-y divide-gray-black text-lg">
@@ -45,7 +45,7 @@ function TrailSection() {
             </div>
           </div>
 
-          {/* Location and Contact with vertical divider */}
+          {/* Location and Contact */}
           <div className="flex flex-col sm:flex-row text-base gap-10 sm:gap-44">
             <div className="sm:pr-6">
               <h4 className="font-semibold text-2xl mb-2">Location</h4>

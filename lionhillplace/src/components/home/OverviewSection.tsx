@@ -17,7 +17,7 @@ function OverviewSection() {
             We will have you setup according to your needs. Click the button below to checkout the place.
           </p>
           <NavLink
-            to="/book"
+            to="/explore"
             className="inline-block border border-black rounded-full px-6 py-2 text-base font-medium text-black hover:bg-black hover:text-white transition"
           >
             Explore
