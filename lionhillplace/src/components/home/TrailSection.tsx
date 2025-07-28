@@ -16,10 +16,10 @@ function TrailSection() {
 
         {/* Right: Info */}
         <div className="w-full lg:w-1/2 px-6 md:px-20 py-14 flex flex-col justify-start">
-          <h2 className="text-2xl md:text-4xl font-semibold mb-8">
+          <h2 className="text-2xl md:text-4xl font-sans font-semibold mb-8">
             Near Lake Nakuru National Park
           </h2>
-          <p className="text-gray-700 text-base mb-8 leading-relaxed">
+          <p className="text-gray-700 text-base mb-8 font-sans leading-relaxed">
             Adventure meets relaxation just a short distance from one of Kenya's
             premier wildlife destinations. Discover flamingos, rhinos, and majestic
             views — right at your doorstep.
@@ -27,7 +27,7 @@ function TrailSection() {
 
           {/* Opening Hours */}
           <div className="mb-8">
-            <h3 className="text-2xl font-semibold mb-6">Opening Hours</h3>
+            <h3 className="text-2xl font-semibold font-sans mb-6">Opening Hours</h3>
             <div className="border-t border-b border-black divide-y divide-gray-black text-lg">
               {[
                 ["Monday", "9:00am - 5:00pm"],
@@ -37,7 +37,7 @@ function TrailSection() {
                 ["Friday", "9:00am - 5:00pm"],
                 ["Saturday", "9:00am - 3:00pm"],
               ].map(([day, time]) => (
-                <div key={day} className="flex justify-between py-4 px-1">
+                <div key={day} className="flex justify-between py-4 px-1 font-sans">
                   <span>{day}</span>
                   <span>{time}</span>
                 </div>
@@ -46,7 +46,7 @@ function TrailSection() {
           </div>
 
           {/* Location and Contact */}
-          <div className="flex flex-col sm:flex-row text-base gap-10 sm:gap-44">
+          <div className="flex flex-col sm:flex-row text-base gap-10 font-serif sm:gap-44">
             <div className="sm:pr-6">
               <h4 className="font-semibold text-2xl mb-2">Location</h4>
               <hr className="border-black mb-4" />

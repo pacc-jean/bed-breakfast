@@ -4,6 +4,7 @@ import Footer from "./components/layout/Footer";
 import Home from "./pages/HomePage";
 import FAQContactPage from "./pages/FAQContactPage";
 import ExplorePage from "./pages/ExplorePage";
+import "./App.css"
 
 function App() {
   return (

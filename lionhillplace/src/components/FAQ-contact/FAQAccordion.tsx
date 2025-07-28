@@ -123,12 +123,12 @@ function FAQAccordion() {
             <div key={index} className="py-4">
               <button
                 onClick={() => handleToggle(index)}
-                className="w-full flex justify-between items-center text-left font-medium text-black"
+                className="w-full flex justify-between items-center text-left font-serif font-medium text-xl text-black"
               >
                 {item.question}
                 {isOpen ? <FaChevronUp /> : <FaChevronDown />}
               </button>
-              {isOpen && <p className="mt-2 text-black/80">{item.answer}</p>}
+              {isOpen && <p className="mt-2 font-sans text-gray-600">{item.answer}</p>}
             </div>
           );
         })}
