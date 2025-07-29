@@ -19,8 +19,8 @@ function Footer() {
             Book your <br /> stays with us
           </h2>
           <NavLink
-            to="/contact"
-            className="mt-6 md:mt-0 inline-flex items-center rounded-full border border-black px-6 py-2 text-sm font-medium hover:bg-black hover:text-white transition-colors"
+            to="/contactfaq#contact"
+            className="mt-6 md:mt-0 inline-flex items-center justify-center rounded-full border border-black px-6 py-2 text-sm font-medium hover:bg-black hover:text-white transition-colors"
           >
             Contact Us
           </NavLink>
