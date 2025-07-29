@@ -2,7 +2,8 @@ import { NavLink } from "react-router-dom";
 
 const navItems = [
   { label: "Home", to: "/" },
-  { label: "Contact & FAQ", to: "/contact" },
+  { label: "Contact", to: "/contactfaq#contact" },
+  { label: "FAQ", to: "/contactfaq#faq" },
   { label: "Explore", to: "/explore" },
 ];
 
@@ -14,7 +15,7 @@ function Navbar() {
           {/* Brand */}
           <NavLink
             to="/"
-            className="font-extrabold text-2xl tracking-tight text-black"
+            className="font-extrabold font-serif text-2xl tracking-tight text-black/70"
           >
             Lion Hill Place
           </NavLink>

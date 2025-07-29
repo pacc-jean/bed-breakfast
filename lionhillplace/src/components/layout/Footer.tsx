@@ -3,14 +3,15 @@ import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 const footerNavItems = [
   { label: "Home", to: "/" },
-  { label: "FAQ", to: "/faq" },
-  { label: "Contact", to: "/contact" },
+  { label: "FAQ", to: "/contactfaq#faq" },
+  { label: "Contact", to: "/contactfaq#contact" },
   { label: "Book Now", to: "/book" },
 ];
 
 function Footer() {
   return (
-    <footer className="mt-32 mb-12 px-4 sm:px-6 py-6 text-sm text-black">
+    <footer className="mt-12 mb-12 px-4 sm:px-6 py-6 text-sm text-black">
+      <hr className="border-gray-400 mb-28 mx-auto" />
       <div className="mx-auto max-w-7xl space-y-10">
         {/* Top: CTA Section */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
@@ -60,7 +61,7 @@ function Footer() {
           {/* Socials */}
           <div className="flex gap-4 mt-6 md:mt-0 md:ml-auto">
             <a
-              href="https://wa.me/254737774030"
+              href="https://wa.me/254722774029"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
@@ -69,7 +70,7 @@ function Footer() {
               <FaWhatsapp className="w-8 h-8" />
             </a>
             <a
-              href="https://instagram.com/lionhillplace"
+              href="https://instagram.com/lion_hill_place"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
