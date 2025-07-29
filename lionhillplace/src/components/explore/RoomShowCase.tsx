@@ -92,8 +92,8 @@ export default function RoomShowCase() {
   };
 
   return (
-    <section className="p-6 md:p-12 bg-white">
-      <h2 className="text-3xl font-semibold font-serif mb-10">Room Options</h2>
+    <section className="p-2 md:p-12 bg-white">
+      <h2 className="text-2xl md:text-3xl font-semibold font-serif mb-10">Room Options</h2>
 
       <div className="grid gap-8 md:grid-cols-3">
         {rooms.map((room, i) => (

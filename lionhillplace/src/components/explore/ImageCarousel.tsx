@@ -32,7 +32,7 @@ export default function ImageCarousel({ images, onImageClick, onSlide }: Props) 
 
   return (
     <div
-      className="relative h-64 md:h-72 w-full bg-gray-200 cursor-pointer group overflow-hidden"
+      className="relative h-80 md:h-80 w-full bg-gray-200 cursor-pointer group overflow-hidden"
       onClick={() => onImageClick(index)}
     >
       <img
