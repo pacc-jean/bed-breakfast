@@ -27,7 +27,7 @@ function OverviewSection() {
         {/* Right Cards */}
         <div className="flex-1 flex flex-col lg:flex-row gap-10">
           {/* Card 1 - Low */}
-          <div className="relative w-full md:w-65 h-96 rounded-3xl overflow-hidden shadow-xl mt-40">
+          <div className="relative w-full md:w-65 h-96 rounded-3xl overflow-hidden shadow-xl md:mt-40">
             <img src={cozyImg} alt="Cozy B&B" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-4 left-4 text-white">
@@ -39,7 +39,7 @@ function OverviewSection() {
           </div>
 
           {/* Card 2 - Higher */}
-          <div className="relative w-full md:w-65 h-96 rounded-3xl overflow-hidden shadow-xl mt-20">
+          <div className="relative w-full md:w-65 h-96 rounded-3xl overflow-hidden shadow-xl md:mt-20">
             <img src={campImg} alt="Scenic Camping" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-4 left-4 text-white">
@@ -51,7 +51,7 @@ function OverviewSection() {
           </div>
 
           {/* Card 3 - Sky high */}
-          <div className="relative w-full md:w-65 h-96 rounded-3xl overflow-hidden shadow-xl mt-0">
+          <div className="relative w-full md:w-65 h-96 rounded-3xl overflow-hidden shadow-xl md:mt-0">
             <img src={eventImg} alt="Event Space" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-4 left-4 text-white">

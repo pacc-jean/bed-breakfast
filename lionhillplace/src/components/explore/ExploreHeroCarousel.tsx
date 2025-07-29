@@ -54,7 +54,7 @@ const ExploreHeroCarousel = () => {
     <section className="w-full bg-white pt-24 pb-12 relative">
       <div className="w-full mx-auto">
         <div className="mb-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold font-serif text-gray-800">Explore Lion Hill</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-gray-800">Explore Lion Hill PLace</h2>
           <p className="text-gray-600 font-sans mt-2">Discover our spaces — rooms, camping, events, and hidden gems</p>
         </div>
 
