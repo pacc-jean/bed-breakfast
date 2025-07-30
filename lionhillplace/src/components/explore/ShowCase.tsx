@@ -4,7 +4,7 @@ import OverviewSection from "./OverviewSection";
 import MapModal from "./MapModal";
 import ShowAmenities from "./ShowAmenities";
 import RoomShowCase from "./RoomShowCase";
-// import CampSiteShowCase from "./CampSiteShowCase";
+import CampSiteShowCase from "./CampSiteShowCase";
 // import EventSpaceShowCase from "./EventSpaceShowCase";
 
 const tabs = [
@@ -68,7 +68,7 @@ export default function ShowCase() {
       case "rooms":
         return <div ref={roomsRef}><RoomShowCase /></div>;
       case "camp":
-        return <div ref={campRef}>Camp Placeholder</div>; // Replace with <CampSiteShowCase />
+        return <div ref={campRef}><CampSiteShowCase /></div>;
       case "events":
         return <div ref={eventsRef}>Events Placeholder</div>; // Replace with <EventSpaceShowCase />
       default:
