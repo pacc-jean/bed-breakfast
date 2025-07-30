@@ -89,7 +89,7 @@ export default function ShowCase() {
             Make a reservation for free and pay for your stay upon arrival
           </p>
           <p className="text-sm text-gray-600 font-serif">
-            Caleb Muibu Road Lion Hill Place, Nakuru - Nakuru
+            Caleb Muibu Road Lion Hill Place, Nakuru - Kenya
             <button
               onClick={() => setIsMapOpen(true)}
               className="text-blue-600 hover:underline ml-1"
