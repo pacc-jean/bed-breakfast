@@ -6,7 +6,7 @@ const faqData = {
     { question: "What is Lion Hill Place?", answer: "Lion Hill Place is a serene B&B, camping site, and event space near Lake Nakuru National Park." },
     { question: "Are pets allowed?", answer: "Yes, friendly pets are welcome!" },
     { question: "Do you allow walk-in bookings?", answer: "Yes, subject to availability. Booking online is recommended." },
-    { question: "What are your check-in and check-out times?", answer: "Check-in is at 2:00 PM and check-out is at 11:00 AM." },
+    { question: "What are your check-in and check-out times?", answer: "Check-in is at 12:00 PM and check-out is at 10:00 AM." },
     { question: "Do you have Wi-Fi?", answer: "Yes, we offer free high-speed Wi-Fi to all our guests." },
     { question: "Is smoking allowed?", answer: "Smoking is allowed only in designated outdoor areas." },
     { question: "Is there parking available?", answer: "Yes, we offer secure parking for all guests." },
