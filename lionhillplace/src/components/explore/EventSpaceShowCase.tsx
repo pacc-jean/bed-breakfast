@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { TbTagsFilled } from "react-icons/tb";
 import GalleryModal from "./GalleryModal";
 
 function importAllImages() {
@@ -23,11 +24,17 @@ const EventSpaceShowCase = () => {
   }, []);
 
   const amenities = [
-    "Birthdays, baby showers, wellness days",
-    "Corporate retreats & family get-togethers", 
-    "Shaded sitting areas & open grounds",
-    "Optional meals, décor, tents & coordination",
-    "On-site group accommodation",
+    "Birthdays",
+    "Baby showers",
+    "Wellness days",
+    "Corporate retreats",
+    "Family get-togethers", 
+    "Shaded sitting area",
+    "Open grounds",
+    "Optional meals", 
+    "Optional décor",
+    "Optional tents & coordination",
+    "On-site accommodation",
     "Safe parking"
   ];
 
@@ -65,7 +72,7 @@ const EventSpaceShowCase = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12 max-w-4xl mx-auto">
           {amenities.map((amenity, idx) => (
             <div key={idx} className="flex items-center gap-3 bg-white/5 backdrop-blur-md rounded-xl p-4 shadow-2xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
-              <div className="w-2 h-2 bg-gradient-to-r from-blue-700 to-cyan-600 rounded-full flex-shrink-0 shadow-lg group-hover:shadow-blue-400/50"></div>
+              <TbTagsFilled className="text-black w-6 h-6"/>
               <span className="text-white font-medium">{amenity}</span>
             </div>
           ))}

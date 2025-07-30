@@ -1,11 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
-import { TbSmartHome, TbMessage2Question, TbBookmarks } from "react-icons/tb";
-import { RxQuestionMarkCircled } from "react-icons/rx";
+import { TbSmartHome, TbBookmarks } from "react-icons/tb";
+import { MdSupportAgent } from "react-icons/md";
+import { RiGlassesLine } from "react-icons/ri";
 
 const navItems = [
   { label: "Home", to: "/", icon: TbSmartHome },
-  { label: "Contact & FAQ", to: "/contactfaq", icon: TbMessage2Question },
-  { label: "Explore", to: "/explore", icon: RxQuestionMarkCircled },
+  { label: "Contact & FAQ", to: "/contactfaq", icon: MdSupportAgent },
+  { label: "Explore", to: "/explore", icon: RiGlassesLine },
   { label: "Book", to: "/book", icon: TbBookmarks },
 ];
 
