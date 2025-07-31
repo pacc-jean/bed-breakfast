@@ -33,16 +33,18 @@ export default function OverviewSection({
   ];
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 text-gray-900 dark:text-white">
       {/* Top Section */}
-      <div className="grid md:grid-cols-2 gap-8 border-b pb-8">
+      <div className="grid md:grid-cols-2 gap-8 border-b border-gray-300 dark:border-gray-600 pb-8">
         <div>
           <h3 className="text-xl font-semibold font-serif mb-4">Top Amenities</h3>
           <ul className="space-y-3">
             {amenities.map((item, index) => (
               <li key={index} className="flex items-center space-x-3">
                 <span className="text-xl text-blue-600">{item.icon}</span>
-                <span className="text-sm text-gray-700 font-sans">{item.label}</span>
+                <span className="text-sm text-gray-700 dark:text-gray-300 font-sans">
+                  {item.label}
+                </span>
               </li>
             ))}
           </ul>
@@ -56,7 +58,7 @@ export default function OverviewSection({
 
         <div>
           <h3 className="text-xl font-semibold font-serif mb-4">About Lion Hill Place</h3>
-          <p className="text-sm text-gray-700 font-sans leading-relaxed">
+          <p className="text-sm text-gray-700 dark:text-gray-300 font-sans leading-relaxed">
             Located in Nakuru, 13 miles from Lake Elementaita, Lion Hill Place provides
             accommodations with a garden, free private parking, a shared lounge and a
             restaurant. The property is located within 14 miles of Lake Nakuru National
@@ -80,17 +82,17 @@ export default function OverviewSection({
         />
         <div>
           <h3 className="text-lg font-semibold mb-2">Double Room with En-suite Toilet</h3>
-          <p className="text-sm text-gray-700 leading-relaxed">
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
             Looking for a clean, quiet, and affordable place to stay? Our Double Room with a private toilet offers everything you need for a simple and comfortable night’s rest.
           </p>
-          <ul className="text-sm text-gray-700 list-disc list-inside mt-2 space-y-1">
+          <ul className="text-sm text-gray-700 dark:text-gray-300 list-disc list-inside mt-2 space-y-1">
             <li>Double bed with clean bedding</li>
             <li>Private en-suite toilet and shower</li>
             <li>Wi-Fi and Smart TV</li>
             <li>Tea/coffee making facilities</li>
             <li>Access to garden, chill zone, and dining area</li>
           </ul>
-          <p className="text-sm text-zinc-500 italic mt-2">
+          <p className="text-sm text-zinc-500 dark:text-zinc-300 italic mt-2">
             Affordable · Private toilet · Internet · Sleeps 2
           </p>
           <button
@@ -102,16 +104,16 @@ export default function OverviewSection({
         </div>
       </div>
 
-      <hr className="border-gray-300 mb-12 mx-auto" />
+      <hr className="border-gray-300 dark:border-gray-600 mb-12 mx-auto" />
 
       {/* One Bedroom Apartment */}
       <div className="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse">
         <div>
           <h3 className="text-lg font-semibold mb-2">One-Bedroom Apartment</h3>
-          <p className="text-sm text-gray-700 leading-relaxed">
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
             Enjoy more space and privacy in our fully furnished apartment. Ideal for couples, remote workers, or small families.
           </p>
-          <ul className="text-sm text-gray-700 list-disc list-inside mt-2 space-y-1">
+          <ul className="text-sm text-gray-700 dark:text-gray-300 list-disc list-inside mt-2 space-y-1">
             <li>King-size bed and ensuite bathroom with shower gel and towels</li>
             <li>Fully equipped kitchenette: microwave, stove, kettle, fridge</li>
             <li>Living area with sofa, dining table, and Smart TV</li>
@@ -131,7 +133,7 @@ export default function OverviewSection({
         />
       </div>
 
-      <hr className="border-gray-300 mb-12 mx-auto" />
+      <hr className="border-gray-300 dark:border-gray-600 mb-12 mx-auto" />
 
       {/* Campsite */}
       <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -142,10 +144,10 @@ export default function OverviewSection({
         />
         <div>
           <h3 className="text-lg font-semibold mb-2">Camping at Lion Hill Place</h3>
-          <p className="text-sm text-gray-700 leading-relaxed">
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
             Sleep under the stars, wake up to birdsong. Our secure, peaceful campsite is perfect for solo travelers, families, and groups.
           </p>
-          <ul className="text-sm text-gray-700 list-disc list-inside mt-2 space-y-1">
+          <ul className="text-sm text-gray-700 dark:text-gray-300 list-disc list-inside mt-2 space-y-1">
             <li>Hot showers</li>
             <li>Clean restrooms</li>
             <li>Charging stations</li>
@@ -162,23 +164,23 @@ export default function OverviewSection({
         </div>
       </div>
 
-      <hr className="border-gray-300 mb-12 mx-auto" />
+      <hr className="border-gray-300 dark:border-gray-600 mb-12 mx-auto" />
 
       {/* Event Space */}
       <div className="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse">
         <div>
           <h3 className="text-lg font-semibold mb-2">Events Space at Lion Hill Place</h3>
-          <p className="text-sm text-gray-700 leading-relaxed">
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
             Celebrate, connect, and create unforgettable moments in nature. Our events space is perfect for intimate gatherings or team-building.
           </p>
-          <ul className="text-sm text-gray-700 list-disc list-inside mt-2 space-y-1">
+          <ul className="text-sm text-gray-700 dark:text-gray-300 list-disc list-inside mt-2 space-y-1">
             <li>Birthdays, baby showers, wellness days</li>
             <li>Corporate retreats & family get-togethers</li>
             <li>Shaded sitting areas & open grounds</li>
             <li>Optional meals, décor, tents & coordination</li>
             <li>On-site group accommodation</li>
           </ul>
-          <p className="text-sm text-zinc-500 italic mt-2">
+          <p className="text-sm text-zinc-500 dark:text-zinc-300 italic mt-2">
             Private, peaceful venue surrounded by nature.
           </p>
           <button

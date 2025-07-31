@@ -19,11 +19,11 @@ export default function MapModal({ isOpen, onClose }: MapModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-      <div className="relative bg-white rounded-xl p-6 shadow-2xl w-[95vw] max-w-3xl">
+      <div className="relative bg-white dark:bg-zinc-700 rounded-xl p-6 shadow-2xl w-[95vw] max-w-3xl text-gray-900 dark:text-white">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute -top-4 -right-4 bg-white text-gray-600 hover:text-black rounded-full shadow-md w-8 h-8 flex items-center justify-center text-2xl"
+          className="absolute -top-4 -right-4 bg-white dark:bg-zinc-700 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white rounded-full shadow-md w-8 h-8 flex items-center justify-center text-2xl"
           aria-label="Close Map"
         >
           &times;
@@ -42,7 +42,7 @@ export default function MapModal({ isOpen, onClose }: MapModalProps) {
           height="400"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className="rounded-lg border"
+          className="rounded-lg border border-gray-300 dark:border-gray-600"
         ></iframe>
       </div>
     </div>

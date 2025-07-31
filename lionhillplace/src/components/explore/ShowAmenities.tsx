@@ -84,14 +84,16 @@ const categories = [
 
 export default function ShowAmenities() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 text-sm text-gray-800 font-sans leading-relaxed">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 text-sm text-gray-800 dark:text-gray-200 font-sans leading-relaxed">
       {categories.map((cat, idx) => (
         <div key={idx}>
-          <h3 className="font-semibold text-[15px] mb-2">{cat.title}</h3>
+          <h3 className="font-semibold text-[15px] mb-2 text-gray-900 dark:text-gray-100">
+            {cat.title}
+          </h3>
           <ul className="space-y-[6px]">
             {cat.items.map((item, i) => (
               <li key={i} className="flex items-start">
-                <FaCheck className="text-green-500 mt-[2px] mr-2 w-3 h-3 shrink-0" />
+                <FaCheck className="text-green-600 dark:text-green-400 mt-[2px] mr-2 w-3 h-3 shrink-0" />
                 <span className="text-[14px]">{item}</span>
               </li>
             ))}

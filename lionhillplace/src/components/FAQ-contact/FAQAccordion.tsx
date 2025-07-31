@@ -82,53 +82,61 @@ function FAQAccordion() {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-serif text-black text-center font-semibold">Frequently asked questions</h2>
+      <h2 className="text-3xl font-serif text-zinc-900 dark:text-white text-center font-semibold">
+        Frequently asked questions
+      </h2>
 
       {/* Filter Dropdown */}
       <div className="relative inline-block">
         <select
-            className="border-b border-blue-500 bg-transparent text-blue-600 text-xl text-center py-1 pr-6 pl-2 outline-none appearance-none cursor-pointer"
-            value={selectedType}
-            onChange={(e) => {
+          className="border-b border-blue-500 bg-transparent dark:bg-zinc-700 text-blue-600 dark:text-blue-400 text-xl text-center py-1 pr-6 pl-2 outline-none appearance-none cursor-pointer"
+          value={selectedType}
+          onChange={(e) => {
             setSelectedType(e.target.value as keyof typeof faqData);
             setOpenIndex(0);
-            }}
+          }}
         >
-            {Object.keys(faqData).map((type) => (
-            <option key={type} value={type} className="text-black bg-white">
-                {type}
+          {Object.keys(faqData).map((type) => (
+            <option
+              key={type}
+              value={type}
+              className="text-zinc-900 dark:text-white bg-white dark:bg-zinc-700"
+            >
+              {type}
             </option>
-            ))}
+          ))}
         </select>
 
         {/* Chevron Icon */}
         <svg
-            className="absolute right-1 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none text-blue-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
+          className="absolute right-1 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none text-blue-600 dark:text-blue-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
         >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
       </div>
 
-
-
       {/* Accordion */}
-      <div className="divide-y divide-black/20">
+      <div className="divide-y divide-zinc-300 dark:divide-white/20">
         {faqData[selectedType].map((item, index) => {
           const isOpen = index === openIndex;
           return (
             <div key={index} className="py-4">
               <button
                 onClick={() => handleToggle(index)}
-                className="w-full flex justify-between items-center text-left font-serif font-medium text-xl text-black"
+                className="w-full flex justify-between items-center text-left font-serif font-medium text-xl text-zinc-900 dark:text-white"
               >
                 {item.question}
                 {isOpen ? <FaChevronUp /> : <FaChevronDown />}
               </button>
-              {isOpen && <p className="mt-2 font-sans text-gray-600">{item.answer}</p>}
+              {isOpen && (
+                <p className="mt-2 font-sans text-zinc-600 dark:text-zinc-300">
+                  {item.answer}
+                </p>
+              )}
             </div>
           );
         })}

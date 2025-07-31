@@ -5,20 +5,20 @@ import eventImg from "../../assets/event.jpg";
 
 function OverviewSection() {
   return (
-    <section className="relative -mt-10 py-24 px-6 bg-gray-100 rounded-t-4xl">
+    <section className="relative -mt-10 py-24 px-6 bg-gray-100 dark:bg-zinc-700 rounded-t-4xl">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-12">
         {/* Left Text */}
         <div className="flex-1 mt-10 pr-6">
-          <h2 className="text-4xl md:text-5xl font-serif text-black mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-serif text-black dark:text-white mb-6 leading-tight">
             Want to book a stay? Checkout what we offer.
           </h2>
-          <p className="text-lg text-gray-600 mb-8">
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
             From beautiful and cozy rooms, to our spacious camp sites, and lush event grounds.
             We will have you setup according to your needs. Click the button below to checkout the place.
           </p>
           <NavLink
             to="/explore"
-            className="inline-block border border-black rounded-full px-6 py-2 text-base font-medium bg-black md:bg-white text-white md:text-black hover:bg-black hover:text-white transition"
+            className="inline-block border border-black dark:border-white rounded-full px-6 py-2 text-base font-medium bg-black md:bg-white dark:md:bg-zinc-900 text-white md:text-black dark:md:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition"
           >
             Explore
           </NavLink>

@@ -77,7 +77,7 @@ export default function ShowCase() {
   };
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 py-8">
+    <section className="w-full max-w-7xl mx-auto px-4 py-8 bg-white dark:bg-zinc-700 text-gray-900 dark:text-white">
       <h4 className="text-lg md:text-3xl font-bold mb-2 font-serif">
         Checkout All That We Have To Offer
       </h4>
@@ -89,7 +89,7 @@ export default function ShowCase() {
           <p className="text-xs md:text-sm text-red-500 italic font-sans">
             Make a reservation for free and pay upon arrival
           </p>
-          <p className="text-xs md:text-sm text-gray-600 font-serif">
+          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 font-serif">
             Caleb Muibu Road Lion Hill Place, Nakuru - Kenya
             <button
               onClick={() => setIsMapOpen(true)}
@@ -105,7 +105,7 @@ export default function ShowCase() {
           href="https://wa.me/254722774029"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center justify-center bg-green-500 md:bg-zinc-600 hover:bg-green-500 text-white rounded-full h-10 w-10 transition-all duration-300 overflow-hidden hover:w-auto px-3"
+          className="group flex items-center justify-center bg-green-500 md:bg-zinc-600 dark:md:bg-zinc-500 hover:bg-green-500 text-white rounded-full h-10 w-10 transition-all duration-300 overflow-hidden hover:w-auto px-3"
         >
           <FaWhatsapp className="text-lg" />
           <span className="text-sm ml-2 hidden group-hover:inline whitespace-nowrap">
@@ -115,15 +115,15 @@ export default function ShowCase() {
       </div>
 
       {/* Tabs */}
-      <div className="flex space-x-4 mb-6 border-b border-gray-200 overflow-x-auto">
+      <div className="flex space-x-4 mb-6 border-b border-gray-200 dark:border-gray-500 overflow-x-auto">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`py-2 px-4 text-sm font-medium whitespace-nowrap border-b-2 ${
+            className={`py-2 px-4 text-sm font-medium whitespace-nowrap border-b-2 transition-colors duration-300 ${
               activeTab === tab.id
                 ? "border-blue-600 text-blue-600"
-                : "border-transparent text-gray-600 hover:text-black"
+                : "border-transparent text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
             }`}
           >
             {tab.label}

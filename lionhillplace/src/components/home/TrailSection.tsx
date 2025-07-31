@@ -1,9 +1,9 @@
 function TrailSection() {
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-white dark:bg-zinc-700 text-black dark:text-white">
       <div className="flex flex-col lg:flex-row w-full">
         {/* Left: Map */}
-        <div className="w-full lg:w-1/2 h-[900px]">
+        <div className="w-full lg:w-1/2 h-[500px] md:h-[900px]">
           <iframe
             title="Lion Hill Place Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.759431832814!2d36.1316099!3d-0.31129840000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1829917ce4cbfa03%3A0x98e0b1ddf1d8f571!2sLion%20Hill%20Place!5e0!3m2!1sen!2ske!4v1753618574945!5m2!1sen!2ske"
@@ -19,7 +19,7 @@ function TrailSection() {
           <h2 className="text-2xl md:text-4xl font-sans font-semibold mb-8">
             Near Lake Nakuru National Park
           </h2>
-          <p className="text-gray-700 text-base mb-8 font-sans leading-relaxed">
+          <p className="text-gray-700 dark:text-gray-300 text-base mb-8 font-sans leading-relaxed">
             Adventure meets relaxation just a short distance from one of Kenya's
             premier wildlife destinations. Discover flamingos, rhinos, and majestic
             views — right at your doorstep.
@@ -28,7 +28,7 @@ function TrailSection() {
           {/* Opening Hours */}
           <div className="mb-8">
             <h3 className="text-2xl font-semibold font-sans mb-6">Opening Hours</h3>
-            <div className="border-t border-b border-black divide-y divide-gray-black text-lg">
+            <div className="border-t border-b border-black dark:border-white divide-y divide-black dark:divide-white text-lg">
               {[
                 ["Monday", "9:00am - 5:00pm"],
                 ["Tuesday", "9:00am - 5:00pm"],
@@ -49,7 +49,7 @@ function TrailSection() {
           <div className="flex flex-col sm:flex-row text-base gap-10 font-serif sm:gap-44">
             <div className="sm:pr-6">
               <h4 className="font-semibold text-2xl mb-2">Location</h4>
-              <hr className="border-black mb-4" />
+              <hr className="border-black dark:border-white mb-4" />
               <p>
                 Caleb Muibu Road, Next to<br />
                 Lake Nakuru National Park,<br />
@@ -58,7 +58,7 @@ function TrailSection() {
             </div>
             <div className="sm:pl-6">
               <h4 className="font-semibold text-2xl mb-2">Contact</h4>
-              <hr className="border-black mb-4" />
+              <hr className="border-black dark:border-white mb-4" />
               <p>
                 lionhillplace@gmail.com<br />
                 0737774030

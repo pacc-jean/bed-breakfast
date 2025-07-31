@@ -32,7 +32,7 @@ export default function ImageCarousel({ images, onImageClick, onSlide }: Props) 
 
   return (
     <div
-      className="relative h-80 md:h-80 w-full bg-gray-200 cursor-pointer group overflow-hidden"
+      className="relative h-80 md:h-80 w-full bg-gray-200 dark:bg-zinc-700 cursor-pointer group overflow-hidden"
       onClick={() => onImageClick(index)}
     >
       <img
@@ -45,9 +45,9 @@ export default function ImageCarousel({ images, onImageClick, onSlide }: Props) 
           e.stopPropagation();
           prev();
         }}
-        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition"
+        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-zinc-900/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition"
       >
-        <ChevronLeft className="w-5 h-5" />
+        <ChevronLeft className="w-5 h-5 text-black dark:text-white" />
       </button>
 
       <button
@@ -55,9 +55,9 @@ export default function ImageCarousel({ images, onImageClick, onSlide }: Props) 
           e.stopPropagation();
           next();
         }}
-        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition"
+        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-zinc-900/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition"
       >
-        <ChevronRight className="w-5 h-5" />
+        <ChevronRight className="w-5 h-5 text-black dark:text-white" />
       </button>
     </div>
   );

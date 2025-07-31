@@ -111,14 +111,16 @@ export default function RoomShowCase() {
   };
 
   return (
-    <section className="p-2 md:p-12 bg-white">
-      <h2 className="text-2xl md:text-3xl font-semibold font-serif mb-10">Room Options</h2>
+    <section className="p-2 md:p-12 bg-white dark:bg-zinc-700">
+      <h2 className="text-2xl md:text-3xl font-semibold font-serif mb-10 text-gray-900 dark:text-gray-100">
+        Room Options
+      </h2>
 
       <div className="grid gap-8 md:grid-cols-3">
         {rooms.map((room, i) => (
-          <div key={i} className="bg-white rounded-2xl shadow overflow-hidden relative flex flex-col">
+          <div key={i} className="bg-white dark:bg-zinc-700 rounded-2xl shadow overflow-hidden relative flex flex-col">
             <div className="absolute top-2 right-2 z-10">
-              <span className="bg-white/80 backdrop-blur-sm text-gray-800 text-sm px-2 py-1 rounded font-medium">
+              <span className="bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm text-gray-800 dark:text-gray-200 text-sm px-2 py-1 rounded font-medium">
                 {currentImageIndex[i] + 1}/{room.images.length}
               </span>
             </div>
@@ -131,11 +133,11 @@ export default function RoomShowCase() {
               />
             </div>
 
-            <div className="p-6 bg-gray-50 backdrop-blur-lg rounded-t-2xl mt-[-1rem] relative z-10 shadow-inner">
-              <h3 className="text-xl font-bold font-serif">{room.name}</h3>
-              <p className="text-sm text-gray-500 mb-2">{room.location}</p>
+            <div className="p-6 bg-gray-50 dark:bg-zinc-800 backdrop-blur-lg rounded-t-2xl mt-[-1rem] relative z-10 shadow-inner">
+              <h3 className="text-xl font-bold font-serif text-gray-900 dark:text-white">{room.name}</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{room.location}</p>
 
-              <div className="flex items-center text-sm text-gray-600 mb-4 space-x-4">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-300 mb-4 space-x-4">
                 <span className="flex items-center gap-1">
                   <Users className="w-4 h-4 text-amber-500" /> {room.sleeps} Adults
                 </span>
@@ -147,18 +149,18 @@ export default function RoomShowCase() {
                 </span>
               </div>
 
-              <p className="text-gray-600 text-sm mb-2">
+              <p className="text-gray-600 dark:text-gray-300 text-sm mb-2">
                 {room.bedInfo} • {room.size}
               </p>
 
-              <span className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded font-medium flex items-center gap-1 w-30">
+              <span className="bg-green-100 dark:bg-green-800/40 text-green-700 dark:text-green-300 text-xs px-2 py-1 rounded font-medium flex items-center gap-1 w-30">
                 <ParkingCircle className="w-4 h-4" /> Free Parking
               </span>
 
               <div className="flex justify-between items-center mt-4">
-                <div className="text-lg font-bold text-gray-900">
+                <div className="text-lg font-bold text-gray-900 dark:text-white">
                   {room.price}
-                  <span className="text-sm text-gray-500"> / night</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400"> / night</span>
                 </div>
                 <button className="hidden md:block bg-zinc-600 text-white rounded-full px-6 py-2 font-semibold hover:bg-black transition">
                   Book Room
@@ -172,26 +174,28 @@ export default function RoomShowCase() {
         ))}
       </div>
 
-       {/* Guest Policies */}
+      {/* Guest Policies */}
       <div className="mt-16">
-        <h2 className="text-2xl font-semibold font-serif mb-6 text-gray-800">Guest Policies</h2>
-        <div className="border-t border-gray-200 divide-y divide-gray-200 text-sm text-gray-800 rounded-xl overflow-hidden shadow-sm">
+        <h2 className="text-2xl font-semibold font-serif mb-6 text-gray-800 dark:text-gray-100">
+          Guest Policies
+        </h2>
+        <div className="border-t border-gray-200 dark:border-zinc-600 divide-y divide-gray-200 dark:divide-zinc-600 text-sm text-gray-800 dark:text-gray-200 rounded-xl overflow-hidden shadow-sm">
 
-          <div className="grid grid-cols-2 bg-gray-100 p-4">
+          <div className="grid grid-cols-2 bg-gray-100 dark:bg-zinc-800 p-4">
             <div className="font-semibold">Check-in</div>
-            <div className="flex items-center gap-2 font-semibold text-gray-900">
+            <div className="flex items-center gap-2 font-semibold text-gray-900 dark:text-white">
               <Clock className="w-4 h-4" /> After 12:00 PM
             </div>
           </div>
 
           <div className="grid grid-cols-2 p-4">
             <div className="font-semibold">Check-out</div>
-            <div className="flex items-center gap-2 font-semibold text-gray-900">
+            <div className="flex items-center gap-2 font-semibold text-gray-900 dark:text-white">
               <Clock className="w-4 h-4" /> Before 10:00 AM
             </div>
           </div>
 
-          <div className="grid grid-cols-2 bg-gray-100 p-4">
+          <div className="grid grid-cols-2 bg-gray-100 dark:bg-zinc-800 p-4">
             <div className="font-semibold">Children & Extra Beds</div>
             <div>Children of all ages are welcome.</div>
           </div>
@@ -201,10 +205,10 @@ export default function RoomShowCase() {
             <div>Free Private parking is available.</div>
           </div>
 
-          <div className="grid grid-cols-2 bg-gray-100 p-4">
+          <div className="grid grid-cols-2 bg-gray-100 dark:bg-zinc-800 p-4">
             <div className="font-semibold">Pets</div>
             <div>
-              <div className="font-semibold flex items-center gap-2 text-blue-800">
+              <div className="font-semibold flex items-center gap-2 text-blue-800 dark:text-blue-300">
                 <PawPrint className="w-4 h-4" /> Pets Allowed
               </div>
               <div>Pets are allowed upon request. Charges may apply.</div>
@@ -220,8 +224,10 @@ export default function RoomShowCase() {
 
       {/* Disclaimer */}
       <div className="text-start border-b border-gray-500 mt-6 mb-4">
-        <h2 className="text-2xl font-semibold font-serif mt-6 mb-2 text-gray-800">Disclaimer</h2>
-        <p className="text-gray-600 text-sm mb-2">
+        <h2 className="text-2xl font-semibold font-serif mt-6 mb-2 text-gray-800 dark:text-gray-100">
+          Disclaimer
+        </h2>
+        <p className="text-gray-600 dark:text-gray-300 text-sm mb-2">
           This property does not accommodate bachelor(ette) or similar parties.
         </p>
       </div>
@@ -229,7 +235,7 @@ export default function RoomShowCase() {
       {/* Room Gallery Thumbnails */}
       {galleryImages.length > 0 && (
         <div className="mt-8">
-          <h2 className="text-2xl font-semibold font-serif mb-4 text-black">More Photos</h2>
+          <h2 className="text-2xl font-semibold font-serif mb-4 text-black dark:text-white">More Photos</h2>
           <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
             {galleryImages.slice(0, 12).map((img, index) => (
               <img

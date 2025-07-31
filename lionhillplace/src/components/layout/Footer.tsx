@@ -10,8 +10,8 @@ const footerNavItems = [
 
 function Footer() {
   return (
-    <footer className="mt-12 mb-12 px-4 sm:px-6 py-6 text-sm text-black">
-      <hr className="border-gray-400 mb-28 mx-auto" />
+    <footer className="mt-12 mb-12 px-4 sm:px-6 py-6 text-sm bg-white dark:bg-zinc-700 text-black dark:text-white">
+      <hr className="border-gray-400 dark:border-white mb-28 mx-auto" />
       <div className="mx-auto max-w-7xl space-y-10">
         {/* Top: CTA Section */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
@@ -20,19 +20,19 @@ function Footer() {
           </h2>
           <NavLink
             to="/contactfaq#contact"
-            className="mt-6 md:mt-0 inline-flex items-center justify-center rounded-full border border-black px-6 py-2 text-sm font-medium bg-black md:bg-white text-white md:text-black hover:bg-black hover:text-white transition-colors"
+            className="mt-6 md:mt-0 inline-flex items-center justify-center rounded-full border border-black dark:border-white px-6 py-2 text-sm font-medium bg-black text-white md:bg-white md:text-black dark:md:bg-black dark:md:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
           >
             Contact Us
           </NavLink>
         </div>
 
         {/* Divider */}
-        <hr className="border border-black" />
+        <hr className="border border-black dark:border-white/30" />
 
         {/* Middle: Info & Links + Socials */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8">
           {/* Info + Links */}
-          <div className="flex flex-col sm:flex-row gap-8 text-sm text-black/90">
+          <div className="flex flex-col sm:flex-row gap-8 text-sm text-black/90 dark:text-white/90">
             {/* Contact Info */}
             <div className="space-y-1">
               <p>lionhillplace@gmail.com</p>
@@ -49,7 +49,7 @@ function Footer() {
                 <li key={item.to}>
                   <NavLink
                     to={item.to}
-                    className="hover:underline transition-colors"
+                    className="hover:underline transition-colors text-black dark:text-white"
                   >
                     {item.label}
                   </NavLink>
@@ -65,7 +65,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="hover:text-emerald-600 transition"
+              className="hover:text-emerald-600 transition text-black dark:text-white"
             >
               <FaWhatsapp className="w-8 h-8" />
             </a>
@@ -74,7 +74,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="hover:text-pink-600 transition"
+              className="hover:text-pink-600 transition text-black dark:text-white"
             >
               <FaInstagram className="w-8 h-8" />
             </a>
@@ -82,7 +82,7 @@ function Footer() {
         </div>
 
         {/* Bottom: Copyright */}
-        <p className="text-sm text-center md:text-right text-black/70">
+        <p className="text-sm text-center md:text-right text-black/70 dark:text-white/50">
           © {new Date().getFullYear()} Lion Hill Place. All rights reserved.
         </p>
       </div>

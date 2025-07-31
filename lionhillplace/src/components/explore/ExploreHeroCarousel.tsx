@@ -51,11 +51,15 @@ const ExploreHeroCarousel = () => {
   ];
 
   return (
-    <section className="w-full bg-white pt-24 pb-12 relative">
+    <section className="w-full bg-white dark:bg-zinc-700 pt-24 pb-12 relative">
       <div className="w-full mx-auto">
         <div className="mb-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold font-serif text-gray-800">Explore Lion Hill PLace</h2>
-          <p className="text-gray-600 font-sans mt-2">Discover our spaces — rooms, camping, events, and hidden gems</p>
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-gray-800 dark:text-white">
+            Explore Lion Hill Place
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 font-sans mt-2">
+            Discover our spaces — rooms, camping, events, and hidden gems
+          </p>
         </div>
 
         <Swiper
@@ -95,10 +99,10 @@ const ExploreHeroCarousel = () => {
 
         {/* Custom Navigation Buttons (Desktop Only) */}
         <div className="hidden md:flex justify-between absolute top-[60%] left-0 right-0 px-4 z-10 pointer-events-none">
-          <button className="custom-prev pointer-events-auto bg-white/90 hover:bg-white text-black p-2 rounded-full shadow transition">
+          <button className="custom-prev pointer-events-auto bg-white/90 dark:bg-zinc-600/80 hover:bg-white dark:hover:bg-zinc-500 text-black dark:text-white p-2 rounded-full shadow transition">
             <ChevronLeft size={24} />
           </button>
-          <button className="custom-next pointer-events-auto bg-white/90 hover:bg-white text-black p-2 rounded-full shadow transition">
+          <button className="custom-next pointer-events-auto bg-white/90 dark:bg-zinc-600/80 hover:bg-white dark:hover:bg-zinc-500 text-black dark:text-white p-2 rounded-full shadow transition">
             <ChevronRight size={24} />
           </button>
         </div>

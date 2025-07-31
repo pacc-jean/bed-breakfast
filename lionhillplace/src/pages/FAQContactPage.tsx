@@ -10,7 +10,6 @@ function FAQContactPage() {
     if (location.hash) {
       const el = document.querySelector(location.hash);
       if (el) {
-        // Give the browser a moment to render before scrolling
         setTimeout(() => {
           el.scrollIntoView({ behavior: "smooth" });
         }, 100);
@@ -19,7 +18,7 @@ function FAQContactPage() {
   }, [location]);
 
   return (
-    <main className="w-full px-4 py-12 max-w-7xl mx-auto space-y-24 mt-10">
+    <main className="w-full min-h-screen px-4 py-12 max-w-7xl mx-auto space-y-24 bg-white text-black dark:bg-zinc-700 dark:text-white">
       {/* Contact Form Section */}
       <section id="contact">
         <ContactForm />

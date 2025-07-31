@@ -21,7 +21,6 @@ function ContactForm() {
 
   const validateField = (name: string, value: string) => {
     let error = "";
-
     if (!value.trim()) {
       error = "This field is required.";
     } else {
@@ -37,7 +36,6 @@ function ContactForm() {
         }
       }
     }
-
     setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
@@ -55,8 +53,6 @@ function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Validate all fields before submission
     let hasErrors = false;
     Object.entries(form).forEach(([name, value]) => {
       validateField(name, value);
@@ -64,20 +60,17 @@ function ContactForm() {
         hasErrors = true;
       }
     });
-
     if (hasErrors) return;
-
     console.log("Submitting:", form);
-    // Submit logic here
   };
 
   return (
-    <section className="w-full mx-auto px-4">
+    <section className="w-full mt-10 mx-auto px-4 text-black dark:text-white">
       <h2 className="text-3xl font-serif font-semibold text-center mb-6">
         Contact Us
       </h2>
-      <hr className="border-gray-300 max-w-2xl mb-6 mx-auto" />
-      <p className="text-sm mb-4 text-blue-600 italic">
+      <hr className="border-gray-300 dark:border-white/30 max-w-2xl mb-6 mx-auto" />
+      <p className="text-sm mb-4 text-blue-600 italic dark:text-blue-400">
         Fields marked<span className="text-red-600"> * </span>are required
       </p>
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -97,10 +90,10 @@ function ContactForm() {
                 value={form[field as keyof typeof form]}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className={`border-b bg-transparent py-1 focus:outline-none ${
+                className={`border-b bg-transparent py-1 focus:outline-none text-black dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 ${
                   errors[field as keyof typeof errors]
                     ? "border-red-500"
-                    : "border-black"
+                    : "border-black dark:border-white"
                 }`}
               />
               {errors[field as keyof typeof errors] && (
@@ -128,8 +121,8 @@ function ContactForm() {
               onChange={handleChange}
               onBlur={handleBlur}
               placeholder="you@example.com"
-              className={`border-b bg-transparent py-1 focus:outline-none ${
-                errors.email ? "border-red-500" : "border-black"
+              className={`border-b bg-transparent py-1 focus:outline-none text-black dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 ${
+                errors.email ? "border-red-500" : "border-black dark:border-white"
               }`}
             />
             {errors.email && (
@@ -150,9 +143,11 @@ function ContactForm() {
                 setErrors((prev) => ({ ...prev, phone: "" }));
               }}
               onBlur={() => validateField("phone", form.phone)}
-              inputClass="!bg-transparent !border-none !focus:outline-none !w-full !py-1 !pl-12 !text-base"
+              inputClass="!bg-transparent !border-none !focus:outline-none !w-full !py-1 !pl-12 !text-base !text-black dark:!text-white placeholder:!text-gray-400 dark:placeholder:!text-gray-500"
               containerClass={`!border-b !bg-transparent !w-full !flex !items-center !relative ${
-                errors.phone ? "!border-red-500" : "!border-black"
+                errors.phone
+                  ? "!border-red-500"
+                  : "!border-black dark:!border-white"
               }`}
               buttonClass="!bg-transparent !border-none !p-0 !absolute !left-0 !top-1/2 !-translate-y-1/2"
               inputProps={{
@@ -181,8 +176,8 @@ function ContactForm() {
             value={form.message}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`border-b bg-transparent py-1 resize-none focus:outline-none ${
-              errors.message ? "border-red-500" : "border-black"
+            className={`border-b bg-transparent py-1 resize-none focus:outline-none text-black dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 ${
+              errors.message ? "border-red-500" : "border-black dark:border-white"
             }`}
           />
           {errors.message && (
@@ -191,16 +186,16 @@ function ContactForm() {
         </div>
 
         {/* Note */}
-        <p className="text-xs text-black/70 leading-relaxed">
-          Write to us for any and all general inquiry or specific issues and we'll reach out. All info
-          provided and correspondence is kept private and secure.
+        <p className="text-xs text-black/70 dark:text-white/70 leading-relaxed">
+          Write to us for any and all general inquiry or specific issues and we'll reach out.
+          All info provided and correspondence is kept private and secure.
         </p>
 
         {/* Submit */}
         <div className="pt-4 text-center">
           <button
             type="submit"
-            className="inline-flex items-center px-6 py-2 border border-black rounded-full font-medium bg-black md:bg-white text-white md:text-black hover:bg-black hover:text-white transition"
+            className="inline-flex items-center px-6 py-2 border border-black dark:border-white rounded-full font-medium bg-black md:bg-white text-white md:text-black dark:md:bg-zinc-700 dark:md:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition"
           >
             Submit
           </button>

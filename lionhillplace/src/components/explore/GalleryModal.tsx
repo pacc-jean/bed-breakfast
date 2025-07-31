@@ -73,7 +73,7 @@ export default function GalleryModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 backdrop-blur-sm bg-black/70 flex flex-col justify-center items-center px-4">
+    <div className="fixed inset-0 z-50 backdrop-blur-sm bg-black/50 flex flex-col justify-center items-center px-4">
       {/* Header */}
       <div className="absolute top-4 right-4 z-20">
         <button onClick={onClose} className="text-white p-2">
@@ -83,7 +83,7 @@ export default function GalleryModal({
 
       {/* Image View */}
       <div
-        className="relative w-full max-w-5xl h-[70vh] flex items-center justify-center"
+        className="relative w-full max-w-5xl h-[70vh] flex items-center justify-center rounded-md"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
