@@ -3,8 +3,8 @@ import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 const footerNavItems = [
   { label: "Home", to: "/" },
-  { label: "FAQ", to: "/contactfaq#faq" },
-  { label: "Contact", to: "/contactfaq#contact" },
+  { label: "Contact", to: "/contactfaq#faq" },
+  { label: "Explore", to: "/explore" },
   { label: "Book Now", to: "/book" },
 ];
 

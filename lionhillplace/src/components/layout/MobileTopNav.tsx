@@ -5,7 +5,7 @@ import { RiGlassesLine } from "react-icons/ri";
 
 const navItems = [
   { label: "Home", to: "/", icon: TbSmartHome },
-  { label: "Contact & FAQ", to: "/contactfaq", icon: MdSupportAgent },
+  { label: "Contact", to: "/contactfaq", icon: MdSupportAgent },
   { label: "Explore", to: "/explore", icon: RiGlassesLine },
   { label: "Book", to: "/book", icon: TbBookmarks },
 ];
@@ -14,7 +14,7 @@ export default function MobileTopNav() {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-black/20 backdrop-blur-md border border-white/70 shadow-md rounded-full px-4 py-2 flex justify-between items-center w-[90%] max-w-md md:hidden">
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-black/20 backdrop-blur-md border border-white/70 shadow-md rounded-full px-2 py-2 flex items-center justify-center gap-4 w-[90%] max-w-md md:hidden">
       {navItems.map(({ label, to, icon: Icon }) => {
         const isActive = location.pathname === to.split("#")[0];
 
@@ -22,16 +22,19 @@ export default function MobileTopNav() {
           <Link
             key={label}
             to={to}
-            className="px-3 relative flex items-center justify-center"
+            className="flex-shrink-0"
           >
             <div
-              className={`w-10 h-10 flex items-center justify-center rounded-full transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-200 ${
                 isActive
                   ? "bg-blue-100 text-blue-600 ring-2 ring-blue-400"
                   : "text-gray-900"
               }`}
             >
               <Icon size={22} />
+              {isActive && (
+                <span className="text-sm font-medium whitespace-nowrap">{label}</span>
+              )}
             </div>
           </Link>
         );
