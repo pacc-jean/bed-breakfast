@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 import OverviewSection from "./OverviewSection";
 import MapModal from "./MapModal";
@@ -16,39 +17,29 @@ const tabs = [
 ];
 
 export default function ShowCase() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("overview");
   const [isMapOpen, setIsMapOpen] = useState(false);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
 
-  const amenitiesRef = useRef<HTMLDivElement>(null);
-  const roomsRef = useRef<HTMLDivElement>(null);
-  const campRef = useRef<HTMLDivElement>(null);
-  const eventsRef = useRef<HTMLDivElement>(null);
+  // Scroll to ShowCase when hash changes
+  useEffect(() => {
+    const hash = location.hash.replace("#", "");
+    const isValidTab = tabs.some((tab) => tab.id === hash);
+    if (isValidTab) {
+      setActiveTab(hash);
+      setTimeout(() => {
+        sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [location.hash]);
 
-  const handleShowAmenitiesClick = () => {
-    setActiveTab("amenities");
+  const handleTabClick = (tabId: string) => {
+    setActiveTab(tabId);
+    navigate(`#${tabId}`);
     setTimeout(() => {
-      amenitiesRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-  };
-
-  const handleShowRoomsClick = () => {
-    setActiveTab("rooms");
-    setTimeout(() => {
-      roomsRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-  };
-
-  const handleShowCampClick = () => {
-    setActiveTab("camp");
-    setTimeout(() => {
-      campRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-  };
-
-  const handleShowEventsClick = () => {
-    setActiveTab("events");
-    setTimeout(() => {
-      eventsRef.current?.scrollIntoView({ behavior: "smooth" });
+      sectionRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
 
@@ -57,34 +48,36 @@ export default function ShowCase() {
       case "overview":
         return (
           <OverviewSection
-            onShowAmenitiesClick={handleShowAmenitiesClick}
-            onShowRoomsClick={handleShowRoomsClick}
-            onShowCampClick={handleShowCampClick}
-            onShowEventsClick={handleShowEventsClick}
+            onShowAmenitiesClick={() => handleTabClick("amenities")}
+            onShowRoomsClick={() => handleTabClick("rooms")}
+            onShowCampClick={() => handleTabClick("camp")}
+            onShowEventsClick={() => handleTabClick("events")}
           />
         );
       case "amenities":
-        return <div ref={amenitiesRef}><ShowAmenities /></div>;
+        return <ShowAmenities />;
       case "rooms":
-        return <div ref={roomsRef}><RoomShowCase /></div>;
+        return <RoomShowCase />;
       case "camp":
-        return <div ref={campRef}><CampSiteShowCase /></div>;
+        return <CampSiteShowCase />;
       case "events":
-        return <div ref={eventsRef}><EventSpaceShowCase /></div>;
+        return <EventSpaceShowCase />;
       default:
         return null;
     }
   };
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 py-8 bg-white dark:bg-zinc-700 text-gray-900 dark:text-white">
+    <section
+      ref={sectionRef}
+      className="w-full max-w-7xl mx-auto px-4 py-8 bg-white dark:bg-zinc-700 text-gray-900 dark:text-white"
+    >
       <h4 className="text-lg md:text-3xl font-bold mb-2 font-serif">
         Checkout All That We Have To Offer
       </h4>
 
       {/* Address & WhatsApp Button */}
       <div className="flex items-end justify-between mb-6">
-        {/* Address */}
         <div>
           <p className="text-xs md:text-sm text-red-500 italic font-sans">
             Make a reservation for free and pay upon arrival
@@ -100,7 +93,6 @@ export default function ShowCase() {
           </p>
         </div>
 
-        {/* WhatsApp Button */}
         <a
           href="https://wa.me/254737774030"
           target="_blank"
@@ -119,7 +111,7 @@ export default function ShowCase() {
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => handleTabClick(tab.id)}
             className={`py-2 px-4 text-sm font-medium whitespace-nowrap border-b-2 transition-colors duration-300 ${
               activeTab === tab.id
                 ? "border-blue-600 text-blue-600"

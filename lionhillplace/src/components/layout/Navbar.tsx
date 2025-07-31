@@ -1,13 +1,19 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const navItems = [
-  { label: "Home", to: "/" },
-  { label: "Contact", to: "/contactfaq#contact" },
-  { label: "FAQ", to: "/contactfaq#faq" },
-  { label: "Explore", to: "/explore" },
+  { label: "Home", to: "/", match: "/" },
+  { label: "Contact", to: "/contactfaq#contact", match: "/contactfaq#contact" },
+  { label: "FAQ", to: "/contactfaq#faq", match: "/contactfaq#faq" },
+  { label: "Explore", to: "/explore", match: "/explore" },
+  { label: "Rooms", to: "/explore#rooms", match: "/explore#rooms" },
+  { label: "Camping", to: "/explore#camp", match: "/explore#camp" },
+  { label: "Events", to: "/explore#events", match: "/explore#events" },
 ];
 
 function Navbar() {
+  const location = useLocation();
+  const currentPath = location.pathname + location.hash;
+
   return (
     <header className="hidden md:block fixed top-0 inset-x-0 z-50 bg-white/80 dark:bg-zinc-700/70 backdrop-blur border-b border-zinc-200 dark:border-zinc-700">
       <nav className="mx-auto max-w-7xl px-6">
@@ -26,12 +32,13 @@ function Navbar() {
               <li key={item.to}>
                 <NavLink
                   to={item.to}
-                  className={({ isActive }) =>
-                    [
-                      "text-sm font-medium transition-colors hover:text-gray-600 dark:hover:text-gray-300",
-                      isActive ? "text-black dark:text-white" : "text-gray-400 dark:text-gray-500",
-                    ].join(" ")
-                  }
+                  replace={item.label === "Explore"} // Optional: avoids stacking nav history
+                  className={[
+                    "text-sm font-medium transition-colors hover:text-gray-600 dark:hover:text-gray-300",
+                    currentPath === item.match
+                      ? "text-black dark:text-white"
+                      : "text-gray-400 dark:text-gray-500",
+                  ].join(" ")}
                 >
                   {item.label}
                 </NavLink>

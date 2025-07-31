@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import Navbar from "./components/layout/Navbar";
 import MobileTopNav from "./components/layout/MobileTopNav";
@@ -11,12 +11,13 @@ import ThemeToggle from "./components/layout/ThemeToggle";
 import "./App.css";
 
 function App() {
+  const location = useLocation();
   return (
     <div className="min-h-screen bg-white text-black dark:bg-zinc-700 dark:text-white">
       <Navbar />
       <MobileTopNav />
       <ScrollToTop />
-      <Routes>
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/contactfaq" element={<FAQContactPage />} />
         <Route path="/explore" element={<ExplorePage />} />
