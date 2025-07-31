@@ -61,7 +61,7 @@ function Footer() {
           {/* Socials */}
           <div className="flex gap-4 mt-6 md:mt-0 md:ml-auto">
             <a
-              href="https://wa.me/254722774029"
+              href="https://wa.me/254737774030"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"

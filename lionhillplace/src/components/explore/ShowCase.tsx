@@ -102,7 +102,7 @@ export default function ShowCase() {
 
         {/* WhatsApp Button */}
         <a
-          href="https://wa.me/254722774029"
+          href="https://wa.me/254737774030"
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center justify-center bg-green-500 md:bg-zinc-600 dark:md:bg-zinc-500 hover:bg-green-500 text-white rounded-full h-10 w-10 transition-all duration-300 overflow-hidden hover:w-auto px-3"
