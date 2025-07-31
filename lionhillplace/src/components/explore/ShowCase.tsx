@@ -78,17 +78,18 @@ export default function ShowCase() {
 
   return (
     <section className="w-full max-w-7xl mx-auto px-4 py-8">
-      <h4 className="text-3xl font-bold mb-2 font-serif">
+      <h4 className="text-lg md:text-3xl font-bold mb-2 font-serif">
         Checkout All That We Have To Offer
       </h4>
 
       {/* Address & WhatsApp Button */}
       <div className="flex items-end justify-between mb-6">
+        {/* Address */}
         <div>
-          <p className="text-sm text-red-500 italic font-sans">
-            Make a reservation for free and pay for your stay upon arrival
+          <p className="text-xs md:text-sm text-red-500 italic font-sans">
+            Make a reservation for free and pay upon arrival
           </p>
-          <p className="text-sm text-gray-600 font-serif">
+          <p className="text-xs md:text-sm text-gray-600 font-serif">
             Caleb Muibu Road Lion Hill Place, Nakuru - Kenya
             <button
               onClick={() => setIsMapOpen(true)}
@@ -104,7 +105,7 @@ export default function ShowCase() {
           href="https://wa.me/254722774029"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center justify-center bg-gray-500 hover:bg-green-500 text-white rounded-full h-10 w-10 transition-all duration-300 overflow-hidden hover:w-auto px-3"
+          className="group flex items-center justify-center bg-green-500 md:bg-zinc-600 hover:bg-green-500 text-white rounded-full h-10 w-10 transition-all duration-300 overflow-hidden hover:w-auto px-3"
         >
           <FaWhatsapp className="text-lg" />
           <span className="text-sm ml-2 hidden group-hover:inline whitespace-nowrap">
