@@ -27,9 +27,9 @@ export default function ThemeToggle() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2">
+    <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex flex-col items-end gap-2">
       {open && (
-        <div className="flex flex-col bg-white dark:bg-gray-800 p-2 rounded-xl shadow-lg transition-all">
+        <div className="flex flex-col bg-black/20 dark:bg-white/10 backdrop-blur-md border border-black/70 dark:border-white/70 shadow-md rounded-full">
           {themes.map((t) => (
             <Tooltip.Provider key={t.id}>
               <Tooltip.Root delayDuration={200}>
@@ -39,7 +39,7 @@ export default function ThemeToggle() {
                       setTheme(t.id)
                       setOpen(false)
                     }}
-                    className={`p-2 rounded-full text-xl transition-colors ${
+                    className={`p-2 rounded-full text-2xl transition-colors ${
                       theme === t.id
                         ? 'bg-gray-200 dark:bg-gray-700'
                         : 'hover:bg-gray-100 dark:hover:bg-gray-700'
@@ -53,10 +53,10 @@ export default function ThemeToggle() {
                   <Tooltip.Content
                     side="left"
                     sideOffset={8}
-                    className="px-2 py-1 text-sm rounded bg-gray-800 text-white shadow-lg z-50"
+                    className="px-2 py-1 text-xs rounded  bg-black/20 backdrop-blur-md text-white shadow-lg z-50"
                   >
                     {t.label}
-                    <Tooltip.Arrow className="fill-gray-800" />
+                    <Tooltip.Arrow className="fill-black/30" />
                   </Tooltip.Content>
                 </Tooltip.Portal>
               </Tooltip.Root>
@@ -70,7 +70,7 @@ export default function ThemeToggle() {
           <Tooltip.Trigger asChild>
             <button
               onClick={() => setOpen(!open)}
-              className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-md hover:shadow-xl transition-all text-xl"
+              className="p-3  bg-black/20 dark:bg-white/10 backdrop-blur-md border border-black/70 dark:border-white/70 rounded-full shadow-md hover:shadow-xl transition-all text-xl"
               aria-label="Switch theme"
             >
               {open ? <MdExpandLess /> : <MdExpandMore />}
@@ -80,10 +80,10 @@ export default function ThemeToggle() {
             <Tooltip.Content
               side="left"
               sideOffset={8}
-              className="px-2 py-1 text-sm rounded bg-gray-800 text-white shadow-lg z-50"
+              className="px-2 py-1 text-xs rounded bg-black/20 backdrop-blur-md text-white shadow-lg z-50"
             >
               Switch theme
-              <Tooltip.Arrow className="fill-gray-800" />
+              <Tooltip.Arrow className="fill-black/30" />
             </Tooltip.Content>
           </Tooltip.Portal>
         </Tooltip.Root>
