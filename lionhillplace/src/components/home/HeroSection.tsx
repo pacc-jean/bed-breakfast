@@ -12,20 +12,19 @@ function HeroSection() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-        <h1 className="text-4xl md:text-5xl font-serif font-semibold mb-4">
-          Welcome to Lion Hill Place
+        <h1 className="text-4xl text-black md:text-5xl font-serif font-semibold mb-4">
+          Welcome to<br className="block md:hidden"/> Lion Hill Place
         </h1>
-        <p className="text-sm md:text-base max-w-2xl mb-6">
-          A tranquil escape for B&amp;B stays, camping, and intimate events – right next to<br />
-          Lake Nakuru National Park
+        <p className="text-xs text-zinc-900 md:text-lg font-serif max-w-2xl mb-6">
+          A tranquil escape for B&amp;B stays, camping, and intimate events<br /> right next to Lake Nakuru National Park
         </p>
         <NavLink
           to="/book"
-          className="bg-white text-black font-semibold py-2 px-4 rounded-lg text-lg shadow-md hover:bg-black hover:text-white transition"
+          className="bg-black md:bg-white text-white  md:text-black font-semibold py-2 px-4 rounded-lg text-lg shadow-md hover:bg-black hover:text-white transition"
         >
           Book Now
         </NavLink>

@@ -200,7 +200,7 @@ function ContactForm() {
         <div className="pt-4 text-center">
           <button
             type="submit"
-            className="inline-flex items-center px-6 py-2 border border-black rounded-full font-medium hover:bg-black hover:text-white transition"
+            className="inline-flex items-center px-6 py-2 border border-black rounded-full font-medium bg-black md:bg-white text-white md:text-black hover:bg-black hover:text-white transition"
           >
             Submit
           </button>

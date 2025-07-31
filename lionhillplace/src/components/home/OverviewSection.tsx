@@ -18,7 +18,7 @@ function OverviewSection() {
           </p>
           <NavLink
             to="/explore"
-            className="inline-block border border-black rounded-full px-6 py-2 text-base font-medium text-black hover:bg-black hover:text-white transition"
+            className="inline-block border border-black rounded-full px-6 py-2 text-base font-medium bg-black md:bg-white text-white md:text-black hover:bg-black hover:text-white transition"
           >
             Explore
           </NavLink>
