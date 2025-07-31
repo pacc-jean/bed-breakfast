@@ -14,7 +14,7 @@ export default function MobileTopNav() {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-black/20 dark:bg-white/10 backdrop-blur-md border border-white/70 dark:border-white/30 shadow-md rounded-full px-2 py-2 flex items-center justify-center gap-4 w-[90%] max-w-md md:hidden">
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-black/20 dark:bg-white/10 backdrop-blur-md border border-white/70 dark:border-white/30 shadow-md rounded-full px-2 py-2 flex items-center justify-center gap-6 w-[90%] max-w-md md:hidden">
       {navItems.map(({ label, to, icon: Icon }) => {
         const isActive = location.pathname === to.split("#")[0];
 
