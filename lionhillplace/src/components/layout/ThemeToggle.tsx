@@ -29,7 +29,7 @@ export default function ThemeToggle() {
   return (
     <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex flex-col items-end gap-2">
       {open && (
-        <div className="flex flex-col bg-black/20 dark:bg-white/10 backdrop-blur-md border border-black/70 dark:border-white/70 shadow-md rounded-full">
+        <div className="flex flex-col bg-black/20 dark:bg-white/10 backdrop-blur-md border border-white/70 dark:border-white/70 shadow-md rounded-full">
           {themes.map((t) => (
             <Tooltip.Provider key={t.id}>
               <Tooltip.Root delayDuration={200}>
@@ -70,7 +70,7 @@ export default function ThemeToggle() {
           <Tooltip.Trigger asChild>
             <button
               onClick={() => setOpen(!open)}
-              className="p-3  bg-black/20 dark:bg-white/10 backdrop-blur-md border border-black/70 dark:border-white/70 rounded-full shadow-md hover:shadow-xl transition-all text-xl"
+              className="p-3  bg-black/20 dark:bg-white/10 backdrop-blur-md border border-white/70 dark:border-white/70 rounded-full shadow-md hover:shadow-xl transition-all text-xl"
               aria-label="Switch theme"
             >
               {open ? <MdExpandLess /> : <MdExpandMore />}
