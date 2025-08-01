@@ -10,12 +10,17 @@ import {
 } from "react-icons/tb";
 import { MdSupportAgent, MdOutlineHotelClass } from "react-icons/md";
 import { RiGlassesLine, RiQuestionAnswerLine } from "react-icons/ri";
+import { TbLayoutDashboard } from "react-icons/tb";
+import { MdOutlineRoomService } from "react-icons/md";
+
 
 const navItems = [
   { label: "Home", to: "/", match: "/", icon: TbSmartHome },
   { label: "Contact", to: "/contactfaq#contact", match: "/contactfaq#contact", icon: MdSupportAgent },
   { label: "FAQ", to: "/contactfaq#faq", match: "/contactfaq#faq", icon: RiQuestionAnswerLine },
   { label: "Explore", to: "/explore", match: "/explore", icon: RiGlassesLine },
+  { label: "Overview", to: "/explore#overview", match: "/explore#overview", icon: TbLayoutDashboard },
+  { label: "Amenities", to: "/explore#amenities", match: "/explore#amenities", icon: MdOutlineRoomService },
   { label: "Rooms", to: "/explore#rooms", match: "/explore#rooms", icon: MdOutlineHotelClass },
   { label: "Camping", to: "/explore#camp", match: "/explore#camp", icon: TbTent },
   { label: "Events", to: "/explore#events", match: "/explore#events", icon: TbCalendarEvent },
