@@ -1,7 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import Navbar from "./components/layout/Navbar";
-import MobileTopNav from "./components/layout/MobileTopNav";
+import MobileSidebar from "./components/layout/MobileSidebar";
 import Footer from "./components/layout/Footer";
 import Home from "./pages/HomePage";
 import FAQContactPage from "./pages/FAQContactPage";
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white text-black dark:bg-zinc-700 dark:text-white">
       <Navbar />
-      <MobileTopNav />
+      <MobileSidebar />
       <ScrollToTop />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
