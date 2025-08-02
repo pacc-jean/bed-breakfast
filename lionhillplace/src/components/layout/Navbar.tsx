@@ -17,13 +17,13 @@ function Navbar() {
   const currentPath = location.pathname + location.hash;
 
   return (
-    <header className="hidden md:block fixed top-0 inset-x-0 z-50 bg-white/80 dark:bg-zinc-700/70 backdrop-blur border-b border-zinc-200 dark:border-zinc-700">
+    <header className="hidden md:block fixed top-0 inset-x-0 z-50 bg-white/80 dark:bg-zinc-500/60 backdrop-blur border-b border-black dark:border-white rounded-b-xl">
       <nav className="mx-auto max-w-7xl px-6">
         <div className="h-16 flex items-center justify-between">
           {/* Brand */}
           <NavLink
             to="/"
-            className="font-extrabold font-serif text-2xl tracking-tight text-black/70 dark:text-white/80"
+            className="font-extrabold font-serif text-2xl tracking-tight text-black/70 dark:text-white text-shadow-glow animate-pulse"
           >
             Lion Hill Place
           </NavLink>
@@ -36,10 +36,10 @@ function Navbar() {
                   to={item.to}
                   replace={item.label === "Explore"} // Optional: avoids stacking nav history
                   className={[
-                    "text-sm font-medium transition-colors hover:text-gray-600 dark:hover:text-gray-300",
+                    "text-base font-medium transition-colors hover:text-black/60 dark:hover:text-gray-300",
                     currentPath === item.match
                       ? "text-black dark:text-white"
-                      : "text-gray-400 dark:text-gray-500",
+                      : "text-gray-400 dark:text-black/60",
                   ].join(" ")}
                 >
                   {item.label}

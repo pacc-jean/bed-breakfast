@@ -29,37 +29,34 @@ function Footer() {
         {/* Divider */}
         <hr className="border border-black dark:border-white/30" />
 
-        {/* Middle: Info & Links + Socials */}
-        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8">
-          {/* Info + Links */}
-          <div className="flex flex-col sm:flex-row gap-8 text-sm text-black/90 dark:text-white/90">
-            {/* Contact Info */}
-            <div className="space-y-1">
-              <p>lionhillplace@gmail.com</p>
-              <p>0737774030</p>
-              <p>
-                Caleb Muibu Road, Next to Lake Nakuru <br />
-                National Park, Lanet gate, Nakuru
-              </p>
-            </div>
-
-            {/* Navigation Links */}
-            <ul className="space-y-1">
-              {footerNavItems.map((item) => (
-                <li key={item.to}>
-                  <NavLink
-                    to={item.to}
-                    className="hover:underline transition-colors text-black dark:text-white"
-                  >
-                    {item.label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
+        {/* Middle: Contact Info, Nav Links, Socials */}
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 text-sm text-black/90 dark:text-white/90">
+          {/* Contact Info - Left */}
+          <div className="space-y-1 text-left">
+            <p>lionhillplace@gmail.com</p>
+            <p>0737774030</p>
+            <p>
+              Caleb Muibu Road, Next to Lake Nakuru <br />
+              National Park, Lanet gate, Nakuru
+            </p>
           </div>
 
-          {/* Socials */}
-          <div className="flex gap-4 mt-6 md:mt-0 md:ml-auto">
+          {/* Navigation Links - Center */}
+          <ul className="space-y-1 text-center md:text-left md:mx-auto">
+            {footerNavItems.map((item) => (
+              <li key={item.to}>
+                <NavLink
+                  to={item.to}
+                  className="hover:underline transition-colors text-black dark:text-white"
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+
+          {/* Socials - Right */}
+          <div className="flex gap-4 mt-6 md:mt-0 md:ml-0 md:justify-end">
             <a
               href="https://wa.me/254737774030"
               target="_blank"
@@ -80,6 +77,7 @@ function Footer() {
             </a>
           </div>
         </div>
+
 
         {/* Bottom: Copyright */}
         <p className="text-sm text-center md:text-right text-black/70 dark:text-white/50">

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { TbChevronLeft, TbChevronRight } from "react-icons/tb";
+import { motion } from "framer-motion";
 
 const heroImages = import.meta.glob("../../assets/heros/*.{jpg,jpeg,png}", {
   eager: true,
@@ -15,7 +16,6 @@ function HeroSection() {
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
-  // Auto slide
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
@@ -27,16 +27,15 @@ function HeroSection() {
     setIndex((prev) => (prev - 1 + images.length) % images.length);
   const nextSlide = () => setIndex((prev) => (prev + 1) % images.length);
 
-  // Swipe handling
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-      touchEndX.current = e.touches[0].clientX;
-    };
+    touchEndX.current = e.touches[0].clientX;
+  };
 
-    const handleTouchEnd = () => {
+  const handleTouchEnd = () => {
     if (
       touchStartX.current !== null &&
       touchEndX.current !== null
@@ -53,7 +52,6 @@ function HeroSection() {
     touchStartX.current = null;
     touchEndX.current = null;
   };
-
 
   return (
     <section
@@ -74,10 +72,9 @@ function HeroSection() {
             }`}
           />
         ))}
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/20 dark:bg-black/40" />
       </div>
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/10" />
 
       {/* Left hover zone */}
       <div
@@ -100,20 +97,31 @@ function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-        <h1 className="text-4xl text-black md:text-5xl font-serif font-semibold mb-4">
-          Welcome to<br className="block md:hidden" /> Lion Hill Place
-        </h1>
-        <p className="text-xs text-black md:text-lg font-serif max-w-2xl mb-6">
-          A tranquil escape for B&amp;B stays, camping, and intimate events
-          <br /> right next to Lake Nakuru National Park
-        </p>
-        <NavLink
-          to="/book"
-          className="bg-black text-white hover:bg-white hover:text-black font-semibold py-2 px-4 rounded-lg text-lg shadow-md transition"
+      <div className="relative z-10 flex items-center justify-center h-full px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 50, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="p-6 md:p-10 text-center max-w-3xl relative"
         >
-          Book Now
-        </NavLink>
+          {/* Radial dark overlay (fades with motion) */}
+          <div className="absolute inset-0 z-[-1] pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0.5)_0%,_rgba(0,0,0,0)_75%)]" />
+
+          <h1 className="text-4xl md:text-5xl font-serif font-semibold mb-4 text-white drop-shadow-lg">
+            Welcome to<br />{" "}
+            <span className="text-shadow-glow animate-pulse text-5xl md:text-6xl">Lion Hill Place</span>
+          </h1>
+          <p className="text-xs md:text-lg font-serif font-medium max-w-2xl mb-6 text-white drop-shadow-sm">
+            A tranquil escape for B&amp;B stays, camping, and intimate events
+            <br /> right next to Lake Nakuru National Park
+          </p>
+          <NavLink
+            to="/book"
+            className="bg-black md:bg-black/70 text-white hover:bg-black hover:text-white font-semibold py-2 px-4 rounded-lg text-lg shadow-md transition"
+          >
+            Book Now
+          </NavLink>
+        </motion.div>
       </div>
     </section>
   );

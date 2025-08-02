@@ -41,9 +41,9 @@ const EventSpaceShowCase = () => {
   return (
     <section className="relative py-20 px-4 overflow-hidden">
       {/* Backgrounds */}
-      <div className="absolute inset-0 rounded-4xl bg-gradient-to-br from-slate-500 via-blue-400 to-black/40 dark:from-zinc-800 dark:via-zinc-900 dark:to-black/80"></div>
+      <div className="absolute inset-0 rounded-4xl bg-gradient-to-b from-slate-500 via-zinc-700 to-black/40 dark:from-zinc-800 dark:via-zinc-900 dark:to-black/80"></div>
       <div className="absolute inset-0 rounded-4xl bg-gradient-to-t from-black/40 to-transparent dark:from-black/60"></div>
-      <div className="absolute inset-0 rounded-4xl bg-gradient-to-br from-white/10 via-transparent to-transparent dark:from-white/5"></div>
+      <div className="absolute inset-0 rounded-4xl bg-gradient-to-b from-white/10 via-transparent to-transparent dark:from-white/5"></div>
       
       <div className="relative max-w-6xl mx-auto">
         {/* Header Section */}
@@ -56,8 +56,8 @@ const EventSpaceShowCase = () => {
           </div>
           
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold font-serif text-white mb-6 leading-tight drop-shadow-2xl">
-            Hold Events at 
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-300 to-blue-500">
+            Events at 
+            <span className="block text-amber-700 text-shadow-glow animate-pulse">
               Lion Hill Place
             </span>
           </h2>

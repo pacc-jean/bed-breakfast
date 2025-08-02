@@ -10,3 +10,10 @@ body,
 body {
   margin: 0;
 }
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.7),
+                 0 0 12px rgba(255, 255, 255, 0.5);
+  }
+}
