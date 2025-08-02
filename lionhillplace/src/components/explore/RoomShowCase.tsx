@@ -162,11 +162,8 @@ export default function RoomShowCase() {
                   {room.price}
                   <span className="text-sm text-gray-500 dark:text-gray-400"> / night</span>
                 </div>
-                <button className="hidden md:block bg-zinc-600 text-white rounded-full px-6 py-2 font-semibold hover:bg-black transition">
+                <button className="bg-black text-white md:bg-zinc-600 md:text-white rounded-full px-6 py-2 font-semibold hover:bg-black transition">
                   Book Room
-                </button>
-                <button className="block md:hidden bg-black text-white rounded-full px-6 py-2 font-semibold">
-                  Book
                 </button>
               </div>
             </div>
@@ -184,7 +181,7 @@ export default function RoomShowCase() {
           <div className="grid grid-cols-2 bg-gray-100 dark:bg-zinc-800 p-4">
             <div className="font-semibold">Check-in</div>
             <div className="flex items-center gap-2 font-semibold text-gray-900 dark:text-white">
-              <Clock className="w-4 h-4" /> After 12:00 PM
+              <Clock className="w-4 h-4" /> After 03:00 PM
             </div>
           </div>
 

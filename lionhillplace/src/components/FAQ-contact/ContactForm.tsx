@@ -1,9 +1,12 @@
 import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-hot-toast";
 
 function ContactForm() {
   const [form, setForm] = useState({
+    title: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -12,6 +15,7 @@ function ContactForm() {
   });
 
   const [errors, setErrors] = useState({
+    title: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -54,14 +58,53 @@ function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     let hasErrors = false;
+
     Object.entries(form).forEach(([name, value]) => {
       validateField(name, value);
       if (!value.trim() || errors[name as keyof typeof errors]) {
         hasErrors = true;
       }
     });
+
     if (hasErrors) return;
-    console.log("Submitting:", form);
+
+    const templateParams = {
+      ...form,
+      name: `${form.firstName} ${form.lastName}`,
+      time: new Date().toLocaleString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      }),
+    };
+
+    toast.promise(
+      emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      ),
+      {
+        loading: "Sending message...",
+        success: () => {
+          setForm({
+            title: "",
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            message: "",
+          });
+          return "Message sent successfully!";
+        },
+        error: "Something went wrong. Try again later.",
+      }
+    );
   };
 
   return (
@@ -74,6 +117,29 @@ function ContactForm() {
         Fields marked<span className="text-red-600"> * </span>are required
       </p>
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Title */}
+        <div className="flex flex-col">
+          <label htmlFor="title" className="text-lg font-medium mb-1">
+            Subject/Title<span className="text-red-600"> *</span>
+          </label>
+          <input
+            required
+            type="text"
+            id="title"
+            name="title"
+            value={form.title}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="e.g. Booking Inquiry"
+            className={`border-b bg-transparent py-1 focus:outline-none text-black dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 ${
+              errors.title ? "border-red-500" : "border-black dark:border-white"
+            }`}
+          />
+          {errors.title && (
+            <span className="text-sm text-red-600 mt-1">{errors.title}</span>
+          )}
+        </div>
+
         {/* First + Last Name */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {["firstName", "lastName"].map((field) => (
