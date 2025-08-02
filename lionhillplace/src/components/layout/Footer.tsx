@@ -42,7 +42,7 @@ function Footer() {
           </div>
 
           {/* Navigation Links - Center */}
-          <ul className="space-y-1 text-center md:text-left md:mx-auto">
+          <ul className="space-y-1 md:text-left md:mx-auto">
             {footerNavItems.map((item) => (
               <li key={item.to}>
                 <NavLink
