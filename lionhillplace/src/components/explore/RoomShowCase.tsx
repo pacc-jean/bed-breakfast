@@ -51,6 +51,7 @@ const rooms = [
     size: "119 sq ft",
     bedInfo: "1 Double Bed",
     bedCount: 1,
+    roomType: "double",
     images: [
       { original: double1, thumbnail: double1 },
       { original: double2, thumbnail: double2 },
@@ -67,6 +68,7 @@ const rooms = [
     size: "151 sq ft",
     bedInfo: "1 Double Bed and 2 Twin Beds",
     bedCount: 3,
+    roomType: "twin",
     images: [
       { original: twin1, thumbnail: twin1 },
       { original: twin2, thumbnail: twin2 },
@@ -82,6 +84,7 @@ const rooms = [
     size: "302 sq ft",
     bedInfo: "1 Queen Bed and 1 Double Bed",
     bedCount: 2,
+    roomType: "apartment",
     images: [
       { original: apt1, thumbnail: apt1 },
       { original: apt2, thumbnail: apt2 },
@@ -108,6 +111,10 @@ export default function RoomShowCase() {
       updated[roomIndex] = index;
       return updated;
     });
+  };
+
+  const handleBookRoom = (roomType: string) => {
+    window.location.href = `/book?bookingType=room&roomType=${roomType}`;
   };
 
   return (
@@ -162,7 +169,10 @@ export default function RoomShowCase() {
                   {room.price}
                   <span className="text-sm text-gray-500 dark:text-gray-400"> / night</span>
                 </div>
-                <button className="bg-black text-white md:bg-zinc-600 md:text-white rounded-full px-6 py-2 font-semibold hover:bg-black transition">
+                <button 
+                  onClick={() => handleBookRoom(room.roomType)}
+                  className="bg-black text-white md:bg-zinc-600 md:text-white rounded-full px-6 py-2 font-semibold hover:bg-black transition"
+                >
                   Book Room
                 </button>
               </div>

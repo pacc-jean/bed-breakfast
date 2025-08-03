@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -20,6 +20,21 @@ export default function BookingForm() {
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
   const [roomType, setRoomType] = useState("double");
+
+  useEffect(() => {
+    // Read query parameters from URL when component mounts
+    const urlParams = new URLSearchParams(window.location.search);
+    const bookingTypeParam = urlParams.get('bookingType');
+    const roomTypeParam = urlParams.get('roomType');
+
+    if (bookingTypeParam && (bookingTypeParam === 'room' || bookingTypeParam === 'campsite' || bookingTypeParam === 'event')) {
+      setBookingType(bookingTypeParam);
+    }
+
+    if (roomTypeParam && bookingTypeParam === 'room' && (roomTypeParam === 'double' || roomTypeParam === 'twin' || roomTypeParam === 'apartment')) {
+      setRoomType(roomTypeParam);
+    }
+  }, []);
 
   const resetForm = () => {
     setCheckIn(null);
