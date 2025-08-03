@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { toast } from 'react-hot-toast';
+import emailjs from "@emailjs/browser";
 import {
   ChevronLeft,
   ChevronRight,
@@ -9,7 +10,6 @@ import {
 } from "lucide-react";
 
 type BookingType = "room" | "campsite" | "event";
-
 
 export default function BookingForm() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -22,7 +22,7 @@ export default function BookingForm() {
   const [children, setChildren] = useState(0);
   const [roomType, setRoomType] = useState("double");
   
-  // New contact fields
+  // Contact fields
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -117,8 +117,63 @@ export default function BookingForm() {
     };
 
     console.log("Booking submitted:", formData);
-    toast.success("Booking request submitted!");
-    resetForm();
+
+    // templateParams object for EmailJS
+    const templateParams = {
+    name: fullName || "N/A",
+    email: email || "N/A",
+    phone: phoneNumber || "N/A",
+    booking_type: bookingType
+        ? bookingType.charAt(0).toUpperCase() + bookingType.slice(1)
+        : "N/A",
+    room_type:
+        bookingType === "room" && roomType
+        ? roomType.charAt(0).toUpperCase() + roomType.slice(1)
+        : "N/A",
+    check_in_date:
+        bookingType !== "event" && checkIn
+        ? checkIn.toLocaleDateString()
+        : "N/A",
+    check_out_date:
+        bookingType !== "event" && checkOut
+        ? checkOut.toLocaleDateString()
+        : "N/A",
+    event_date:
+        bookingType === "event" && eventDate
+        ? eventDate.toLocaleDateString()
+        : "N/A",
+    adults: adults?.toString() || "0",
+    children: children?.toString() || "0",
+    message: `New ${bookingType} booking request from ${fullName}`,
+    time:
+        new Date().toLocaleString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+        }) || "N/A",
+    };
+
+    // Use toast.promise pattern
+    toast.promise(
+      emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE1_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      ),
+      {
+        loading: "Submitting booking request...",
+        success: () => {
+          resetForm();
+          return "Booking request submitted successfully!";
+        },
+        error: "Failed to send booking request. Please try again.",
+      }
+    );
   };
 
   const monthNames = [
@@ -142,14 +197,12 @@ export default function BookingForm() {
       const date = new Date(year, month, day);
       days.push(date);
     }
-
     return days;
   };
 
   const handleDateClick = (date: Date) => {
     const today = new Date();
     const midnightToday = new Date(today.setHours(0, 0, 0, 0));
-
     if (date < midnightToday) return;
 
     if (bookingType === "event") {
