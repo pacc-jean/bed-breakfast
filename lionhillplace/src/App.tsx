@@ -7,6 +7,7 @@ import Footer from "./components/layout/Footer";
 import Home from "./pages/HomePage";
 import FAQContactPage from "./pages/FAQContactPage";
 import ExplorePage from "./pages/ExplorePage";
+import BookingPage from "./pages/BookingPage";
 import { Analytics } from '@vercel/analytics/react';
 import ThemeToggle from "./components/layout/ThemeToggle";
 import { Toaster } from "react-hot-toast";
@@ -51,6 +52,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/contactfaq" element={<FAQContactPage />} />
         <Route path="/explore" element={<ExplorePage />} />
+        <Route path="/book" element={<BookingPage />} />
       </Routes>
       <Footer />
       <ThemeToggle />
