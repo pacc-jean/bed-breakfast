@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { toast } from 'react-hot-toast';
 import {
   ChevronLeft,
   ChevronRight,
@@ -6,9 +7,9 @@ import {
   Plus,
   Minus,
 } from "lucide-react";
-import toast from "react-hot-toast";
 
 type BookingType = "room" | "campsite" | "event";
+
 
 export default function BookingForm() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -20,17 +21,22 @@ export default function BookingForm() {
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
   const [roomType, setRoomType] = useState("double");
+  
+  // New contact fields
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   useEffect(() => {
     // Read query parameters from URL when component mounts
     const urlParams = new URLSearchParams(window.location.search);
     const bookingTypeParam = urlParams.get('bookingType');
     const roomTypeParam = urlParams.get('roomType');
-
+    
     if (bookingTypeParam && (bookingTypeParam === 'room' || bookingTypeParam === 'campsite' || bookingTypeParam === 'event')) {
       setBookingType(bookingTypeParam);
     }
-
+    
     if (roomTypeParam && bookingTypeParam === 'room' && (roomTypeParam === 'double' || roomTypeParam === 'twin' || roomTypeParam === 'apartment')) {
       setRoomType(roomTypeParam);
     }
@@ -45,9 +51,28 @@ export default function BookingForm() {
     setRoomType("double");
     setIsSelectingCheckIn(true);
     setCurrentMonth(new Date());
+    setFullName("");
+    setEmail("");
+    setPhoneNumber("");
   };
 
   const onSubmit = () => {
+    // Validate contact fields first
+    if (!fullName.trim()) {
+      toast.error("Please enter your full name.");
+      return;
+    }
+    
+    if (!email.trim()) {
+      toast.error("Please enter your email address.");
+      return;
+    }
+    
+    if (!phoneNumber.trim()) {
+      toast.error("Please enter your phone number.");
+      return;
+    }
+
     const today = new Date();
     const midnightToday = new Date(today.setHours(0, 0, 0, 0));
 
@@ -79,6 +104,9 @@ export default function BookingForm() {
     }
 
     const formData = {
+      fullName,
+      email,
+      phoneNumber,
       bookingType,
       checkIn,
       checkOut,
@@ -114,12 +142,14 @@ export default function BookingForm() {
       const date = new Date(year, month, day);
       days.push(date);
     }
+
     return days;
   };
 
   const handleDateClick = (date: Date) => {
     const today = new Date();
     const midnightToday = new Date(today.setHours(0, 0, 0, 0));
+
     if (date < midnightToday) return;
 
     if (bookingType === "event") {
@@ -178,6 +208,43 @@ export default function BookingForm() {
 
   return (
     <div className="w-full rounded-lg bg-gray-50 dark:bg-zinc-900 dark:text-white p-4">
+      {/* Contact Information Section */}
+      <div className="bg-white dark:bg-zinc-800 rounded-lg p-4 shadow-sm mb-6">
+        <h3 className="text-lg font-medium mb-4">Contact Information</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label className="block text-sm font-medium mb-1">Full Name *</label>
+            <input
+              type="text"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              placeholder="Enter your full name"
+              className="w-full p-2 border border-gray-300 dark:border-gray-600 dark:bg-zinc-700 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Email *</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              className="w-full p-2 border border-gray-300 dark:border-gray-600 dark:bg-zinc-700 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Phone Number *</label>
+            <input
+              type="tel"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              placeholder="Enter your phone number"
+              className="w-full p-2 border border-gray-300 dark:border-gray-600 dark:bg-zinc-700 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+        </div>
+      </div>
+
       {/* Booking Type Selector (Mobile) */}
       <div className="md:hidden mb-4">
         <select
